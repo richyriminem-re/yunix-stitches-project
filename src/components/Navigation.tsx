@@ -2,11 +2,16 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, Search, ShoppingBag, User, ChevronDown } from "lucide-react";
+import { Menu, Search, ShoppingBag, User, ChevronDown, Calendar, ArrowRight } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleWhatsAppContact = () => {
+    const message = encodeURIComponent("Hello! I'm interested in booking a consultation for custom tailoring.");
+    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+  };
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -98,8 +103,15 @@ const Navigation = () => {
               </span>
             </Button>
             <ThemeToggle />
-            <Button className="btn-bronze ml-2">
-              Book Fitting
+            <Button 
+              variant="bronze" 
+              size="lg"
+              className="ml-2"
+              onClick={handleWhatsAppContact}
+            >
+              <Calendar className="mr-2 h-4 w-4" />
+              Book A Fitting
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
 
@@ -125,8 +137,15 @@ const Navigation = () => {
                     </a>
                   ))}
                   <div className="pt-4 border-t border-border">
-                    <Button className="w-full btn-bronze mb-4">
-                      Book Fitting
+                    <Button 
+                      variant="bronze" 
+                      size="lg"
+                      className="w-full mb-4"
+                      onClick={handleWhatsAppContact}
+                    >
+                      <Calendar className="mr-2 h-4 w-4" />
+                      Book A Fitting
+                      <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                     <div className="flex space-x-4">
                       <Button variant="outline" size="sm" className="flex-1">
