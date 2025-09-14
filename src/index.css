@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Yunix Stitches Design System - Premium Nigerian Fashion E-commerce */
+
+@layer base {
+  :root {
+    /* Modern Luxe Neutrals Color System */
+    --background: 48 43% 96%; /* Ivory */
+    --foreground: 0 0% 10%; /* Charcoal Black */
+
+    --card: 48 43% 96%; /* Ivory */
+    --card-foreground: 0 0% 10%; /* Charcoal Black */
+
+    --popover: 48 43% 96%; /* Ivory */
+    --popover-foreground: 0 0% 10%; /* Charcoal Black */
+
+    /* Primary: Charcoal Black */
+    --primary: 0 0% 10%;
+    --primary-foreground: 48 43% 96%;
+
+    /* Secondary: Metallic Bronze */
+    --secondary: 35 32% 52%;
+    --secondary-foreground: 48 43% 96%;
+
+    /* Modern Luxe accent colors */
+    --charcoal-black: 0 0% 10%;
+    --warm-taupe: 33 22% 75%;
+    --muted-olive: 86 14% 45%;
+    --metallic-bronze: 35 32% 52%;
+    --ivory: 48 43% 96%;
+
+    /* Muted tones */
+    --muted: 33 22% 85%;
+    --muted-foreground: 86 14% 35%;
+
+    --accent: 33 22% 90%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 33 22% 85%;
+    --input: 33 22% 92%;
+    --ring: 35 32% 52%;
+
+    --radius: 0.75rem;
+
+    /* Modern Luxe Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(33 22% 25%) 100%);
+    --gradient-bronze: linear-gradient(135deg, hsl(35 32% 52%) 0%, hsl(35 32% 62%) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(0 0% 10%) 0%, hsl(35 32% 52%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(33 22% 75%) 0%, hsl(86 14% 55%) 100%);
+
+    /* Modern Luxe Shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.25);
+    --shadow-bronze: 0 10px 30px -10px hsl(35 32% 52% / 0.3);
+    --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode Modern Luxe Neutrals */
+    --background: 0 0% 8%;
+    --foreground: 33 22% 85%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 33 22% 85%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 33 22% 85%;
+
+    /* Primary: Light for dark mode */
+    --primary: 33 22% 85%;
+    --primary-foreground: 0 0% 8%;
+
+    /* Secondary: Metallic Bronze consistent */
+    --secondary: 35 32% 62%;
+    --secondary-foreground: 0 0% 8%;
+
+    /* Modern Luxe accent colors - dark mode adjusted */
+    --charcoal-black: 0 0% 8%;
+    --warm-taupe: 33 22% 65%;
+    --muted-olive: 86 14% 55%;
+    --metallic-bronze: 35 32% 62%;
+    --ivory: 0 0% 15%;
+
+    /* Muted tones for dark mode */
+    --muted: 0 0% 15%;
+    --muted-foreground: 33 22% 65%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 33 22% 85%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 35 32% 62%;
+
+    /* Dark mode Modern Luxe gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 8%) 0%, hsl(0 0% 15%) 100%);
+    --gradient-bronze: linear-gradient(135deg, hsl(35 32% 62%) 0%, hsl(35 32% 72%) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(0 0% 15%) 0%, hsl(35 32% 62%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(33 22% 65%) 0%, hsl(86 14% 55%) 100%);
+
+    /* Dark mode Modern Luxe shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
+    --shadow-bronze: 0 10px 30px -10px hsl(35 32% 62% / 0.4);
+    --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply bg-gradient-to-r from-primary to-primary/90 text-primary-foreground;
+    @apply hover:from-primary/90 hover:to-primary/80;
+    @apply shadow-luxury;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-bronze {
+    background: var(--gradient-bronze);
+    @apply text-primary-foreground shadow-bronze hover:scale-105;
+    transition: var(--transition-bounce);
+  }
+
+  .btn-taupe {
+    @apply bg-warm-taupe text-charcoal-black hover:bg-warm-taupe/90;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-olive {
+    @apply bg-muted-olive text-ivory hover:bg-muted-olive/90;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-outline-bronze {
+    @apply border-2 border-secondary text-secondary;
+    @apply hover:bg-secondary hover:text-secondary-foreground;
+    transition: var(--transition-smooth);
+  }
+
+  .btn-outline-inverse {
+    @apply border-2 text-white border-white/70;
+    @apply hover:bg-white hover:text-primary;
+    transition: var(--transition-smooth);
+  }
+
+  .dark .btn-outline-inverse {
+    @apply border-white/80 text-white;
+    @apply hover:bg-white hover:text-charcoal-black;
+  }
+
+  /* Nigerian Pattern Decorations */
+  .adire-pattern {
+    background-image: radial-gradient(circle at 2px 2px, hsl(35 32% 52%) 1px, transparent 0);
+    background-size: 20px 20px;
+    opacity: 0.1;
+  }
+
+  .luxury-border {
+    border-image: var(--gradient-bronze);
+    border-image-slice: 1;
+  }
+
+  /* Hero Section Styles */
+  .hero-overlay {
+    background: linear-gradient(135deg, 
+      hsl(0 0% 0% / 0.7) 0%, 
+      hsl(0 0% 0% / 0.4) 50%, 
+      hsl(35 32% 52% / 0.2) 100%);
+  }
+
+  .dark .hero-overlay {
+    background: linear-gradient(135deg, 
+      hsl(0 0% 0% / 0.8) 0%, 
+      hsl(0 0% 0% / 0.5) 50%, 
+      hsl(35 32% 52% / 0.3) 100%);
+  }
+
+  /* Product Card Hover Effects */
+  .product-card {
+    transition: var(--transition-smooth);
+    @apply hover:shadow-luxury hover:-translate-y-1;
+  }
+
+  .product-card:hover .product-image {
+    @apply scale-105;
+  }
+
+  /* Elegant Dividers */
+  .elegant-divider {
+    background: var(--gradient-bronze);
+    height: 1px;
+    width: 80px;
+    margin: 1rem auto;
+  }
+
+  /* Testimonial Cards */
+  .testimonial-card {
+    @apply bg-gradient-to-br from-warm-taupe/30 to-muted/50 backdrop-blur-sm;
+    @apply border border-secondary/20;
+  }
+
+  .dark .testimonial-card {
+    @apply bg-gradient-to-br from-muted/50 to-accent/50 backdrop-blur-sm;
+    @apply border border-secondary/30;
+  }
+
+  /* Dark mode specific enhancements */
+  .dark .adire-pattern {
+    opacity: 0.05;
+  }
+
+  .dark .elegant-divider {
+    background: var(--gradient-bronze);
+    opacity: 0.8;
+  }
+}
