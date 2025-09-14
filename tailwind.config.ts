@@ -52,6 +52,7 @@ export default {
         "warm-taupe": "hsl(var(--warm-taupe))",
         "muted-olive": "hsl(var(--muted-olive))",
         "metallic-bronze": "hsl(var(--metallic-bronze))",
+        "premium-gold": "hsl(var(--premium-gold))",
         "ivory": "hsl(var(--ivory))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

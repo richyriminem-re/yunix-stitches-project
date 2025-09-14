@@ -29,10 +29,10 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-1 mb-6">
             <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-metallic-bronze text-metallic-bronze drop-shadow-lg" />
+                <Star key={i} className="w-4 h-4 sm:w-5 sm:h-5 fill-premium-gold text-premium-gold drop-shadow-lg" />
               ))}
             </div>
-            <span className="text-sm sm:text-base text-metallic-bronze font-semibold drop-shadow-sm">Trusted by 500+ clients</span>
+            <span className="text-sm sm:text-base text-premium-gold font-semibold drop-shadow-sm">Trusted by 500+ clients</span>
           </div>
           
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-serif font-bold leading-tight mb-4 sm:mb-6">
