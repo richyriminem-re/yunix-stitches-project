@@ -1,11 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Star, Calendar, ShoppingBag } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+  
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'm interested in booking a consultation for custom tailoring.");
     window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+  };
+
+  const handleShopClick = () => {
+    navigate('/shop');
   };
 
   return (
@@ -56,6 +63,7 @@ const HeroSection = () => {
             size="lg" 
             variant="outline-inverse" 
             className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold min-h-[48px]"
+            onClick={handleShopClick}
           >
             <ShoppingBag className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             Shop Now
