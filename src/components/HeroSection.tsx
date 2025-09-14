@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, Calendar, ShoppingBag } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const HeroSection = () => {
@@ -58,7 +58,8 @@ const HeroSection = () => {
             className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold min-h-[48px]"
             onClick={handleWhatsAppContact}
           >
-            Book Consultation
+            <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+            Book A Fitting
             <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
           
@@ -67,7 +68,8 @@ const HeroSection = () => {
             variant="outline-inverse" 
             className="w-full sm:w-auto text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 font-semibold min-h-[48px]"
           >
-            Explore Collection
+            <ShoppingBag className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+            Shop Now
           </Button>
         </div>
 
