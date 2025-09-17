@@ -129,7 +129,7 @@ const ProductShowcase = () => {
         />
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {filteredProducts.map((product) => (
             <Card key={product.id} className="product-card group border-0 shadow-soft hover:shadow-luxury">
               <div className="relative overflow-hidden rounded-t-lg">
