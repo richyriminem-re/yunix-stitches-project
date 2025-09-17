@@ -204,22 +204,34 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden rounded-t-lg">
-        {/* Product Image */}
+        {/* Product Image - Mobile Optimized Aspect Ratio */}
         <img 
           src={product.images[currentImageIndex]}
           alt={product.name}
-          className="product-image w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500"
+          className="product-image w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover transition-transform duration-500"
         />
         
         {/* Stock Status */}
         {!product.inStock && (
           <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-            <Badge variant="destructive" className="text-white">Out of Stock</Badge>
+            <Badge variant="destructive" className="text-white text-xs">Out of Stock</Badge>
           </div>
         )}
         
-        {/* Overlay Actions */}
-        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+        {/* Mobile Quick Actions - Always Visible */}
+        <div className="absolute top-3 right-3 md:hidden">
+          <Button 
+            size="sm" 
+            variant="ghost" 
+            className="w-8 h-8 p-0 bg-black/30 hover:bg-black/50 text-white rounded-full"
+            onClick={toggleWishlist}
+          >
+            <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
+          </Button>
+        </div>
+        
+        {/* Desktop Overlay Actions */}
+        <div className="hidden md:flex absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center space-x-4">
           <Button 
             size="sm" 
             variant="ghost" 
@@ -256,71 +268,65 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
           </Button>
         </div>
 
-        {/* Image Navigation Dots */}
-        {product.images.length > 1 && isHovered && (
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            {product.images.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentImageIndex ? 'bg-white' : 'bg-white/50'
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentImageIndex(index);
-                }}
-              />
-            ))}
-          </div>
-        )}
-
-        {/* Badges */}
-        <div className="absolute top-4 left-4 flex flex-col space-y-2">
+        {/* Badges - Mobile Optimized */}
+        <div className="absolute top-2 left-2 flex flex-col space-y-1">
           {product.isNew && (
-            <Badge className="bg-muted-olive text-white font-medium">New</Badge>
+            <Badge className="bg-muted-olive text-white font-medium text-xs px-2 py-1">New</Badge>
           )}
           {product.isBestseller && (
-            <Badge className="bg-secondary text-secondary-foreground font-medium">Bestseller</Badge>
+            <Badge className="bg-secondary text-secondary-foreground font-medium text-xs px-2 py-1">Best</Badge>
           )}
           {product.originalPrice && (
-            <Badge variant="destructive">
+            <Badge variant="destructive" className="text-xs px-2 py-1">
               -{Math.round((1 - product.price / product.originalPrice) * 100)}%
             </Badge>
           )}
         </div>
 
-        {/* Stock Count */}
+        {/* Stock Count - Mobile Optimized */}
         {product.inStock && product.stockCount && product.stockCount <= 5 && (
-          <div className="absolute top-4 right-4">
-            <Badge variant="secondary" className="text-xs">
-              Only {product.stockCount} left
+          <div className="absolute bottom-2 right-2">
+            <Badge variant="secondary" className="text-xs px-2 py-1">
+              {product.stockCount} left
             </Badge>
           </div>
         )}
       </div>
 
-      <CardContent className="p-6">
-        <div className="mb-2">
-          <span className="text-sm text-muted-foreground font-medium">
+      <CardContent className="p-3 sm:p-4 md:p-6">
+        {/* Category - Smaller on mobile */}
+        <div className="mb-1">
+          <span className="text-xs sm:text-sm text-muted-foreground font-medium">
             {product.categoryName}
           </span>
         </div>
 
-        <h3 className="text-lg font-serif font-semibold text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+        {/* Product Name - Larger and more prominent on mobile */}
+        <h3 className="text-sm sm:text-base md:text-lg font-serif font-semibold text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2 leading-tight">
           {product.name}
         </h3>
 
-        <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-          {product.description}
-        </p>
+        {/* Price - More prominent on mobile */}
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex flex-col">
+            <span className="text-base sm:text-lg md:text-xl font-bold text-primary">
+              {formatPrice(product.price)}
+            </span>
+            {product.originalPrice && (
+              <span className="text-xs sm:text-sm text-muted-foreground line-through">
+                {formatPrice(product.originalPrice)}
+              </span>
+            )}
+          </div>
+        </div>
 
-        {/* Rating */}
-        <div className="flex items-center gap-2 mb-4">
-          <div className="flex space-x-1">
+        {/* Rating - Simplified for mobile */}
+        <div className="flex items-center gap-1 mb-3">
+          <div className="flex space-x-0.5">
             {[...Array(5)].map((_, i) => (
               <Star 
                 key={i} 
-                className={`w-3 h-3 sm:w-4 sm:h-4 ${
+                className={`w-3 h-3 ${
                   i < Math.floor(product.rating) 
                     ? 'fill-secondary text-secondary' 
                     : 'text-gray-300'
@@ -328,49 +334,41 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
               />
             ))}
           </div>
-          <span className="text-sm font-medium">{product.rating}</span>
-          <span className="text-xs sm:text-sm text-muted-foreground">({product.reviews})</span>
+          <span className="text-xs font-medium">{product.rating}</span>
+          <span className="text-xs text-muted-foreground hidden sm:inline">({product.reviews})</span>
         </div>
 
-        {/* Size and Color Indicators */}
-        <div className="flex justify-between items-center mb-4">
-          <div className="flex items-center gap-2">
+        {/* Size and Color Indicators - Simplified for mobile */}
+        <div className="flex justify-between items-center mb-3 sm:mb-4">
+          <div className="flex items-center gap-1">
             <div className="flex gap-1">
-              {product.colors.slice(0, 3).map(color => (
-                <div key={color} className="w-3 h-3 rounded-full border border-border bg-muted" title={color}></div>
+              {product.colors.slice(0, 2).map(color => (
+                <div key={color} className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full border border-border bg-muted" title={color}></div>
               ))}
-              {product.colors.length > 3 && <span className="text-xs text-muted-foreground">+{product.colors.length - 3}</span>}
+              {product.colors.length > 2 && <span className="text-xs text-muted-foreground">+{product.colors.length - 2}</span>}
             </div>
           </div>
           <div className="flex gap-1">
-            {product.sizes.slice(0, 3).map(size => (
-              <Badge key={size} variant="outline" className="text-xs px-1 py-0">{size}</Badge>
+            {product.sizes.slice(0, 2).map(size => (
+              <Badge key={size} variant="outline" className="text-xs px-1 py-0 h-5">{size}</Badge>
             ))}
-            {product.sizes.length > 3 && <span className="text-xs text-muted-foreground">+{product.sizes.length - 3}</span>}
+            {product.sizes.length > 2 && <span className="text-xs text-muted-foreground">+{product.sizes.length - 2}</span>}
           </div>
         </div>
 
-        {/* Price */}
-        <div className="flex items-center justify-between mb-4">
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-primary">
-              {formatPrice(product.price)}
-            </span>
-            {product.originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                {formatPrice(product.originalPrice)}
-              </span>
-            )}
-          </div>
-        </div>
-
-        {/* WhatsApp Order Button */}
+        {/* WhatsApp Order Button - Touch Optimized */}
         <Button 
-          className="w-full btn-outline-bronze min-h-[44px]"
+          className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
           onClick={handleWhatsAppOrder}
           disabled={!product.inStock}
         >
-          {product.inStock ? 'Order via WhatsApp' : 'Out of Stock'}
+          {product.inStock ? (
+            <>
+              <ShoppingBag className="h-4 w-4 mr-2" />
+              <span className="hidden sm:inline">Order via WhatsApp</span>
+              <span className="sm:hidden">Order Now</span>
+            </>
+          ) : 'Out of Stock'}
         </Button>
       </CardContent>
     </Card>

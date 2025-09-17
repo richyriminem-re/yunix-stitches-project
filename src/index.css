@@ -227,11 +227,25 @@
   /* Product Card Hover Effects */
   .product-card {
     transition: var(--transition-smooth);
-    @apply hover:shadow-luxury hover:-translate-y-1;
+    @apply hover:shadow-luxury;
   }
 
-  .product-card:hover .product-image {
-    @apply scale-105;
+  /* Desktop hover effects */
+  @media (min-width: 768px) {
+    .product-card:hover {
+      @apply -translate-y-1;
+    }
+    
+    .product-card:hover .product-image {
+      @apply scale-105;
+    }
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 767px) {
+    .product-card {
+      @apply active:scale-95 active:shadow-soft;
+    }
   }
 
   /* Elegant Dividers */
