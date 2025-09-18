@@ -1,4 +1,5 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Search, Filter, Grid, List, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -36,6 +37,7 @@ export interface Product {
 
 const Shop = () => {
   const { toast } = useToast();
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const [priceRange, setPriceRange] = useState([0, 500000]);
@@ -44,6 +46,14 @@ const Shop = () => {
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [quickFilters, setQuickFilters] = useState<string[]>([]);
+
+  // Handle URL parameters for category filtering
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      setActiveCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   // Expanded product data
   const allProducts: Product[] = [
