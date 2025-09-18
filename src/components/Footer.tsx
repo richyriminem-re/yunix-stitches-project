@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Instagram, Facebook, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 const Footer = () => {
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'd like to get more information about Yunix Stitches services.");
-    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
   };
   const quickLinks = [{
     name: "About Us",
@@ -77,8 +77,8 @@ const Footer = () => {
 Alagbaka, Akure, Ondo State, Nigeria</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-secondary" />
-                  <span>+234 812 345 6789</span>
+                  <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
+                  <span>+234 901 989 8642</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-secondary" />
@@ -90,15 +90,37 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
               <div className="mt-8">
                 <h4 className="font-semibold mb-4">Follow Our Journey</h4>
                 <div className="flex space-x-4">
-                  <Button variant="ghost" size="sm" className="text-white hover:text-secondary hover:bg-white/10">
-                    <Instagram className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="sm" className="text-white hover:text-secondary hover:bg-white/10">
-                    <Facebook className="h-5 w-5" />
-                  </Button>
-                  <Button variant="ghost" size="sm" className="text-white hover:text-secondary hover:bg-white/10" onClick={handleWhatsAppContact}>
-                    <MessageCircle className="h-5 w-5" />
-                  </Button>
+                  {/* Instagram */}
+                  <a 
+                    href="https://instagram.com/yunixstitches" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 via-purple-500 to-orange-500 hover:scale-110 transition-transform duration-300 shadow-lg"
+                  >
+                    <Instagram className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </a>
+                  
+                  {/* TikTok */}
+                  <a 
+                    href="https://tiktok.com/@yunixstitches" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-black hover:scale-110 transition-transform duration-300 shadow-lg relative overflow-hidden"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#25F4EE] to-[#FE2C55] opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+                    <svg className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-.88-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                    </svg>
+                  </a>
+                  
+                  {/* WhatsApp */}
+                  <a 
+                    href="#" 
+                    onClick={(e) => { e.preventDefault(); handleWhatsAppContact(); }}
+                    className="group flex items-center justify-center w-10 h-10 rounded-full bg-[#25D366] hover:scale-110 transition-transform duration-300 shadow-lg cursor-pointer"
+                  >
+                    <MessageCircle className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -141,8 +163,7 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm opacity-90">
               <a href="/privacy" className="hover:text-secondary transition-colors">Privacy Policy</a>
               <a href="/terms" className="hover:text-secondary transition-colors">Terms of Service</a>
-              <a href="/returns" className="hover:text-secondary transition-colors">
-            </a>
+              <a href="/returns" className="hover:text-secondary transition-colors">Returns & Exchanges</a>
             </div>
           </div>
         </div>
