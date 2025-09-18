@@ -38,9 +38,11 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-serif font-bold text-primary transition-colors duration-300">
-              Yunix Stitches
-            </h1>
+            <a href="/" className="block">
+              <h1 className="text-2xl font-serif font-bold text-primary hover:text-secondary transition-colors duration-300">
+                Yunix Stitches
+              </h1>
+            </a>
           </div>
 
           {/* Desktop Navigation */}
