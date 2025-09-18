@@ -4,12 +4,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Eye, ShoppingBag, Star } from "lucide-react";
 import CategoryFilter from "@/components/CategoryFilter";
+import { useToast } from "@/hooks/use-toast";
 import product1 from "@/assets/product-1.jpg";
 import product2 from "@/assets/product-2.jpg";
 import product3 from "@/assets/product-3.jpg";
 
 const ProductShowcase = () => {
+  const { toast } = useToast();
   const [activeCategory, setActiveCategory] = useState("all");
+  const [wishlistedItems, setWishlistedItems] = useState<Set<number>>(new Set());
 
   const allProducts = [
     {
@@ -107,6 +110,23 @@ const ProductShowcase = () => {
     window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
   };
 
+  const toggleWishlist = (productId: number, productName: string) => {
+    const newWishlisted = new Set(wishlistedItems);
+    const isWishlisted = wishlistedItems.has(productId);
+    
+    if (isWishlisted) {
+      newWishlisted.delete(productId);
+    } else {
+      newWishlisted.add(productId);
+    }
+    
+    setWishlistedItems(newWishlisted);
+    toast({
+      title: isWishlisted ? "Removed from wishlist" : "Added to wishlist",
+      description: `${productName} ${isWishlisted ? "removed from" : "added to"} your wishlist`
+    });
+  };
+
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-background to-muted/30">
       <div className="container mx-auto">
@@ -129,24 +149,41 @@ const ProductShowcase = () => {
         />
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 auto-rows-fr">
           {filteredProducts.map((product) => (
-            <Card key={product.id} className="product-card group border-0 shadow-soft hover:shadow-luxury">
+            <Card key={product.id} className="product-card group border-0 shadow-soft hover:shadow-luxury h-full flex flex-col">
               <div className="relative overflow-hidden rounded-t-lg">
-                {/* Product Image */}
+                {/* Product Image - Mobile Optimized */}
                 <img 
                   src={product.image}
                   alt={product.name}
-                  className="product-image w-full h-64 sm:h-72 md:h-80 object-cover transition-transform duration-500"
+                  className="product-image w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover transition-transform duration-500"
                 />
                 
-                {/* Overlay Actions */}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-2 sm:space-x-4">
+                {/* Mobile Quick Actions - Always Visible */}
+                <div className="absolute top-3 right-3 md:hidden">
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    className="w-8 h-8 p-0 bg-black/30 hover:bg-black/50 text-white rounded-full"
+                    onClick={() => toggleWishlist(product.id, product.name)}
+                  >
+                    <Heart className={`h-4 w-4 ${wishlistedItems.has(product.id) ? 'fill-red-500 text-red-500' : ''}`} />
+                  </Button>
+                </div>
+                
+                {/* Desktop Overlay Actions */}
+                <div className="hidden md:flex absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center space-x-2 sm:space-x-4">
                   <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-2">
                     <Eye className="h-4 w-4" />
                   </Button>
-                  <Button size="sm" variant="ghost" className="text-white hover:bg-white/20 p-2">
-                    <Heart className="h-4 w-4" />
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    className="text-white hover:bg-white/20 p-2"
+                    onClick={() => toggleWishlist(product.id, product.name)}
+                  >
+                    <Heart className={`h-4 w-4 ${wishlistedItems.has(product.id) ? 'fill-red-500 text-red-500' : ''}`} />
                   </Button>
                   <Button 
                     size="sm" 
@@ -159,39 +196,51 @@ const ProductShowcase = () => {
                   </Button>
                 </div>
 
-                {/* Badges */}
-                <div className="absolute top-4 left-4 flex flex-col space-y-2">
+                {/* Badges - Mobile Optimized */}
+                <div className="absolute top-2 left-2 flex flex-col space-y-1">
                   {product.isNew && (
-                    <Badge className="bg-muted-olive text-white font-medium">New</Badge>
+                    <Badge className="bg-muted-olive text-white font-medium text-xs px-2 py-1">New</Badge>
                   )}
                   {product.isBestseller && (
-                    <Badge className="bg-secondary text-secondary-foreground font-medium">Bestseller</Badge>
+                    <Badge className="bg-secondary text-secondary-foreground font-medium text-xs px-2 py-1">Best</Badge>
                   )}
                 </div>
               </div>
 
-              <CardContent className="p-4 sm:p-6">
-                <div className="mb-2">
+              <CardContent className="p-3 sm:p-4 md:p-6 flex flex-col flex-grow">
+                {/* Category - Mobile Optimized */}
+                <div className="mb-1">
                   <span className="text-xs sm:text-sm text-muted-foreground font-medium">
                     {product.categoryName}
                   </span>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-serif font-semibold text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2">
+                {/* Product Name - Mobile Optimized */}
+                <h3 className="text-sm sm:text-base md:text-lg font-serif font-semibold text-primary mb-2 group-hover:text-secondary transition-colors line-clamp-2 leading-tight">
                   {product.name}
                 </h3>
 
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {product.description}
-                </p>
+                {/* Price - More prominent on mobile */}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex flex-col">
+                    <span className="text-base sm:text-lg md:text-xl font-bold text-primary">
+                      {product.price}
+                    </span>
+                    {product.originalPrice && (
+                      <span className="text-xs sm:text-sm text-muted-foreground line-through">
+                        {product.originalPrice}
+                      </span>
+                    )}
+                  </div>
+                </div>
 
-                {/* Rating */}
-                <div className="flex flex-wrap items-center gap-2 mb-4">
-                  <div className="flex space-x-1">
+                {/* Rating - Simplified for mobile */}
+                <div className="flex items-center gap-1 mb-3 flex-grow">
+                  <div className="flex space-x-0.5">
                     {[...Array(5)].map((_, i) => (
                       <Star 
                         key={i} 
-                        className={`w-3 h-3 sm:w-4 sm:h-4 ${
+                        className={`w-3 h-3 ${
                           i < Math.floor(product.rating) 
                             ? 'fill-secondary text-secondary' 
                             : 'text-gray-300'
@@ -199,30 +248,18 @@ const ProductShowcase = () => {
                       />
                     ))}
                   </div>
-                  <span className="text-sm font-medium">{product.rating}</span>
-                  <span className="text-xs sm:text-sm text-muted-foreground">({product.reviews} reviews)</span>
+                  <span className="text-xs font-medium">{product.rating}</span>
+                  <span className="text-xs text-muted-foreground hidden sm:inline">({product.reviews})</span>
                 </div>
 
-                {/* Price */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
-                    <span className="text-lg sm:text-xl font-bold text-primary">
-                      {product.price}
-                    </span>
-                    {product.originalPrice && (
-                      <span className="text-sm text-muted-foreground line-through">
-                        {product.originalPrice}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* WhatsApp Order Button */}
+                {/* WhatsApp Order Button - Touch Optimized */}
                 <Button 
-                  className="w-full btn-outline-bronze min-h-[44px] text-sm sm:text-base"
+                  className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
                   onClick={() => handleWhatsAppOrder(product)}
                 >
-                  Order via WhatsApp
+                  <ShoppingBag className="h-4 w-4 mr-2" />
+                  <span className="hidden sm:inline">Order via WhatsApp</span>
+                  <span className="sm:hidden">Order Now</span>
                 </Button>
               </CardContent>
             </Card>
