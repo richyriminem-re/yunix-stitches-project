@@ -26,6 +26,7 @@ const ProductShowcase = () => {
       rating: 4.9,
       reviews: 24,
       isNew: true,
+      inStock: true,
       description: "Luxurious emerald green Aso-ebi with intricate gold beadwork and modern tailoring."
     },
     {
@@ -37,6 +38,7 @@ const ProductShowcase = () => {
       image: product2,
       rating: 4.8,
       reviews: 22,
+      inStock: true,
       description: "Handcrafted corset with vintage lace details and perfect fit."
     },
     {
@@ -49,6 +51,7 @@ const ProductShowcase = () => {
       rating: 4.7,
       reviews: 33,
       isNew: true,
+      inStock: true,
       description: "Professional corporate suit with modern tailoring and premium fabric."
     },
     {
@@ -60,6 +63,7 @@ const ProductShowcase = () => {
       image: product1,
       rating: 4.5,
       reviews: 41,
+      inStock: true,
       description: "Comfortable and stylish ready-to-wear dress for everyday elegance."
     },
     {
@@ -72,6 +76,7 @@ const ProductShowcase = () => {
       rating: 4.9,
       reviews: 17,
       isBestseller: true,
+      inStock: true,
       description: "Traditional bubu with contemporary flair and rich embroidery."
     },
     {
@@ -83,6 +88,7 @@ const ProductShowcase = () => {
       image: product3,
       rating: 4.7,
       reviews: 15,
+      inStock: true,
       description: "Luxurious silk bridal robe with delicate lace trim."
     },
     {
@@ -95,6 +101,7 @@ const ProductShowcase = () => {
       rating: 5.0,
       reviews: 18,
       isBestseller: true,
+      inStock: true,
       description: "Exquisite wedding gown with traditional lace and contemporary silhouette."
     }
   ];
@@ -256,10 +263,15 @@ const ProductShowcase = () => {
                 <Button 
                   className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
                   onClick={() => handleWhatsAppOrder(product)}
+                  disabled={!product.inStock}
                 >
-                  <ShoppingBag className="h-4 w-4 mr-2" />
-                  <span className="hidden sm:inline">Order via WhatsApp</span>
-                  <span className="sm:hidden">Order Now</span>
+                  {product.inStock ? (
+                    <>
+                      <ShoppingBag className="h-4 w-4 mr-2" />
+                      <span className="hidden sm:inline">Order via WhatsApp</span>
+                      <span className="sm:hidden">Order Now</span>
+                    </>
+                  ) : 'Out of Stock'}
                 </Button>
               </CardContent>
             </Card>
