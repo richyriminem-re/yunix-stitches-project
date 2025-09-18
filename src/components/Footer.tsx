@@ -67,17 +67,17 @@ const Footer = () => {
               
               {/* Contact Info */}
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-secondary" />
-                  <span>Igbatoro Road, Opposite HOB (After Federal Secretariat), Alagbaka, Akure, Ondo State, Nigeria</span>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="h-5 w-5 text-secondary flex-shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base leading-relaxed">Igbatoro Road, Opposite HOB (After Federal Secretariat), Alagbaka, Akure, Ondo State, Nigeria</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-secondary" />
-                  <span>+234 901 989 8642</span>
+                  <Phone className="h-5 w-5 text-secondary flex-shrink-0" />
+                  <span className="text-sm sm:text-base">+234 901 989 8642</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-secondary" />
-                  <span>hello@yunixstitches.com</span>
+                  <Mail className="h-5 w-5 text-secondary flex-shrink-0" />
+                  <span className="text-sm sm:text-base">hello@yunixstitches.com</span>
                 </div>
               </div>
 
