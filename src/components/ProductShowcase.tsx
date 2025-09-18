@@ -116,9 +116,20 @@ const CategoryShowcase = () => {
                 </h3>
 
                 {/* Category Description */}
-                <p className="text-sm sm:text-base text-muted-foreground flex-grow leading-relaxed">
+                <p className="text-sm sm:text-base text-muted-foreground flex-grow leading-relaxed mb-4">
                   {category.description}
                 </p>
+
+                {/* Explore Button - Mobile First */}
+                <Button 
+                  className="w-full btn-bronze min-h-[44px] text-sm font-medium mt-auto"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCategoryClick(category.id);
+                  }}
+                >
+                  Explore
+                </Button>
               </CardContent>
             </Card>
           ))}
