@@ -277,3 +277,17 @@
     opacity: 0.8;
   }
 }
+
+/* Product Grid and Card Layout Utilities */
+.auto-rows-fr {
+  grid-auto-rows: 1fr;
+}
+
+/* Product Card Layout Fixes */
+.product-card {
+  @apply h-full;
+}
+
+.product-card .card-content {
+  @apply flex flex-col h-full;
+}

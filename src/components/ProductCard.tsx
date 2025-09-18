@@ -199,7 +199,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
   // Grid view (default)
   return (
     <Card 
-      className="product-card group border-0 shadow-soft hover:shadow-luxury"
+      className="product-card group border-0 shadow-soft hover:shadow-luxury h-full flex flex-col"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -293,7 +293,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
         )}
       </div>
 
-      <CardContent className="p-3 sm:p-4 md:p-6">
+      <CardContent className="p-3 sm:p-4 md:p-6 flex flex-col flex-grow">
         {/* Category - Smaller on mobile */}
         <div className="mb-1">
           <span className="text-xs sm:text-sm text-muted-foreground font-medium">
@@ -339,7 +339,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
         </div>
 
         {/* Size and Color Indicators - Simplified for mobile */}
-        <div className="flex justify-between items-center mb-3 sm:mb-4">
+        <div className="flex justify-between items-center mb-3 sm:mb-4 flex-grow">
           <div className="flex items-center gap-1">
             <div className="flex gap-1">
               {product.colors.slice(0, 2).map(color => (
