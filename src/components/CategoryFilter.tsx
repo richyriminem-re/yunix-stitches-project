@@ -8,9 +8,9 @@ interface CategoryFilterProps {
 const CategoryFilter = ({ activeCategory, onCategoryChange }: CategoryFilterProps) => {
   const categories = [
     { id: "all", name: "All" },
-    { id: "asoebi-wears", name: "Asoebi Wears" },
+    { id: "asoebi-wears", name: "Asoebi" },
     { id: "corset", name: "Corset" },
-    { id: "corporate-wears", name: "Corporate Wears" },
+    { id: "corporate-wears", name: "Corporate" },
     { id: "ready-to-wear", name: "Ready to Wear" },
     { id: "bubu", name: "Bubu" },
     { id: "bridal-robe", name: "Bridal Robe" },

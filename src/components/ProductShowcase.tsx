@@ -14,45 +14,52 @@ const CategoryShowcase = () => {
   const allCategories = [
     {
       id: "asoebi-wears",
-      name: "Asoebi Wears",
+      name: "Asoebi",
+      subtitle: "Traditional Wear",
       image: product1,
-      description: "Luxurious traditional wear with intricate beadwork and modern tailoring"
+      description: "Luxurious traditional pieces with intricate beadwork and modern tailoring."
     },
     {
       id: "corset",
       name: "Corset",
+      subtitle: "Vintage Style",
       image: product2,
-      description: "Handcrafted corsets with vintage lace details and perfect fit"
+      description: "Handcrafted corsets with vintage lace details and perfect fit."
     },
     {
       id: "corporate-wears",
-      name: "Corporate Wears",
+      name: "Corporate",
+      subtitle: "Professional Wear",
       image: product3,
-      description: "Professional attire with modern tailoring and premium fabric"
+      description: "Professional attire with modern tailoring and premium fabrics."
     },
     {
       id: "ready-to-wear",
       name: "Ready to Wear",
+      subtitle: "Casual Style",
       image: product1,
-      description: "Comfortable and stylish pieces for everyday elegance"
+      description: "Comfortable and stylish pieces for everyday elegance."
     },
     {
       id: "bubu",
       name: "Bubu",
+      subtitle: "Contemporary",
       image: product2,
-      description: "Traditional bubu with contemporary flair and rich embroidery"
+      description: "Traditional bubu with contemporary flair and rich embroidery."
     },
     {
       id: "bridal-robe",
       name: "Bridal Robe",
+      subtitle: "Luxury Robes",
       image: product3,
-      description: "Luxurious silk robes with delicate lace trim"
+      description: "Luxurious silk robes with delicate lace trim for special moments."
     },
     {
       id: "wedding-gowns",
       name: "Wedding Gowns",
+      subtitle: "Bridal Collection",
       image: product1,
-      description: "Exquisite gowns with traditional lace and contemporary silhouette"
+      description: "Exquisite gowns with traditional lace and contemporary silhouettes."
     }
   ];
 
@@ -86,43 +93,55 @@ const CategoryShowcase = () => {
         />
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 auto-rows-fr">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {filteredCategories.map((category) => (
             <Card 
               key={category.id} 
-              className="category-card group border-0 shadow-soft hover:shadow-luxury h-full flex flex-col cursor-pointer transition-all duration-300 hover:scale-105"
+              className="category-card group bg-card border border-border rounded-lg shadow-soft hover:shadow-md h-full flex flex-col cursor-pointer transition-all duration-300 hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20"
               onClick={() => handleCategoryClick(category.id)}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleCategoryClick(category.id);
+                }
+              }}
             >
               <div className="relative overflow-hidden rounded-t-lg">
                 {/* Category Image */}
                 <img 
                   src={category.image}
-                  alt={category.name}
-                  className="w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={`${category.name} - ${category.subtitle}`}
+                  className="w-full h-32 sm:h-36 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 
                 {/* Overlay on hover */}
-                <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="text-white text-center">
-                    <p className="text-sm font-medium">Explore Collection</p>
+                    <p className="text-xs sm:text-sm font-medium">View Collection</p>
                   </div>
                 </div>
               </div>
 
-              <CardContent className="p-3 sm:p-4 md:p-6 flex flex-col flex-grow text-center">
+              <CardContent className="p-4 flex flex-col flex-grow text-center">
                 {/* Category Name */}
-                <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-primary mb-3 group-hover:text-secondary transition-colors">
+                <h3 className="text-base sm:text-lg font-serif font-bold text-primary mb-1 group-hover:text-secondary transition-colors">
                   {category.name}
                 </h3>
 
-                {/* Category Description */}
-                <p className="text-sm sm:text-base text-muted-foreground flex-grow leading-relaxed mb-4">
+                {/* Category Subtitle */}
+                <p className="text-xs sm:text-sm text-muted-foreground/80 mb-3 font-medium">
+                  {category.subtitle}
+                </p>
+
+                {/* Category Description - Line Clamped */}
+                <p className="text-xs sm:text-sm text-muted-foreground flex-grow leading-relaxed mb-4 line-clamp-2">
                   {category.description}
                 </p>
 
                 {/* Explore Button - Mobile First */}
                 <Button 
-                  className="w-full btn-bronze min-h-[44px] text-sm font-medium mt-auto"
+                  className="w-full btn-bronze min-h-[44px] text-xs sm:text-sm font-medium mt-auto"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleCategoryClick(category.id);
