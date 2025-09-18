@@ -5,7 +5,7 @@ import { Instagram, Facebook, MessageCircle, Phone, Mail, MapPin } from "lucide-
 const Footer = () => {
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'd like to get more information about Yunix Stitches services.");
-    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    window.open(`https://wa.me/23490198998642?text=${message}`, '_blank');
   };
 
   const quickLinks = [
@@ -69,11 +69,11 @@ const Footer = () => {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-secondary" />
-                  <span>123 Broad Street, Lagos Island, Lagos, Nigeria</span>
+                  <span>Igbatoro Road, Opposite HOB (After Federal Secretariat), Alagbaka, Akure, Ondo State, Nigeria</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-secondary" />
-                  <span>+234 812 345 6789</span>
+                  <span>+234 901 989 8642</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-secondary" />
