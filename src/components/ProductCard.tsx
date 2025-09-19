@@ -356,19 +356,13 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
           </div>
         </div>
 
-        {/* WhatsApp Order Button - Touch Optimized */}
+        {/* View Product Button - Touch Optimized */}
         <Button 
           className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
-          onClick={handleWhatsAppOrder}
-          disabled={!product.inStock}
+          onClick={() => window.location.href = `/product/${product.id}`}
         >
-          {product.inStock ? (
-            <>
-              <ShoppingBag className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">Order via WhatsApp</span>
-              <span className="sm:hidden">Order Now</span>
-            </>
-          ) : 'Out of Stock'}
+          <Eye className="h-4 w-4 mr-2" />
+          VIEW
         </Button>
       </CardContent>
     </Card>
