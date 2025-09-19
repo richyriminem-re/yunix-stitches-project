@@ -23,13 +23,13 @@ const Navigation = () => {
   ];
 
   const categories = [
-    { name: "Asoebi Wears", href: "/categories/asoebi-wears" },
-    { name: "Corset", href: "/categories/corset" },
-    { name: "Corporate Wears", href: "/categories/corporate-wears" },
-    { name: "Ready to Wear", href: "/categories/ready-to-wear" },
-    { name: "Bubu", href: "/categories/bubu" },
-    { name: "Bridal Robe", href: "/categories/bridal-robe" },
-    { name: "Wedding Gowns", href: "/categories/wedding-gowns" },
+    { name: "Asoebi Wears", href: "/shop?category=asoebi-wears" },
+    { name: "Corset", href: "/shop?category=corset" },
+    { name: "Corporate Wears", href: "/shop?category=corporate-wears" },
+    { name: "Ready to Wear", href: "/shop?category=ready-to-wear" },
+    { name: "Bubu", href: "/shop?category=bubu" },
+    { name: "Bridal Robe", href: "/shop?category=bridal-robe" },
+    { name: "Wedding Gowns", href: "/shop?category=wedding-gowns" },
   ];
 
   return (
