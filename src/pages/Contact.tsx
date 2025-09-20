@@ -246,7 +246,7 @@ const Contact = () => {
                   <Card className="bg-gradient-to-r from-secondary/10 to-secondary/5 border-secondary/20">
                     <CardContent className="p-6">
                       <div className="flex items-center space-x-4">
-                        <MessageCircle className="h-8 w-8 text-secondary" />
+                        <i className="fa-brands fa-whatsapp text-2xl text-secondary" />
                         <div className="flex-1">
                           <h3 className="font-semibold text-lg">Need Quick Help?</h3>
                           <p className="text-muted-foreground text-sm">Get instant support via WhatsApp</p>
