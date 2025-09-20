@@ -289,7 +289,7 @@ const ProductDetail = () => {
 
             {/* Thumbnail Navigation */}
             {product.images.length > 1 && (
-              <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 lg:grid-cols-3 xl:grid-cols-4">
+              <div className="grid grid-cols-4 gap-2 sm:grid-cols-5 lg:grid-cols-4 xl:grid-cols-6">
                 {product.images.map((image, index) => (
                   <button
                     key={index}
