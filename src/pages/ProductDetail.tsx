@@ -464,33 +464,31 @@ const ProductDetail = () => {
             <Separator />
 
             {/* Actions */}
-            <div className="space-y-4">
+            <Button
+              onClick={handleWhatsAppOrder}
+              className="w-full bg-green-600 hover:bg-green-700 text-white"
+              size="lg"
+              disabled={!product.inStock}
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              Order via WhatsApp
+            </Button>
+            
+            <div className="grid grid-cols-2 gap-3 lg:hidden">
               <Button
-                onClick={handleWhatsAppOrder}
-                className="w-full bg-green-600 hover:bg-green-700 text-white"
-                size="lg"
-                disabled={!product.inStock}
+                variant="outline"
+                onClick={handleWishlist}
+                className={cn(
+                  isWishlisted && "text-red-500 border-red-200 dark:border-red-800"
+                )}
               >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Order via WhatsApp
+                <Heart className={cn("mr-2 h-4 w-4", isWishlisted && "fill-current")} />
+                {isWishlisted ? "Saved" : "Save"}
               </Button>
-              
-              <div className="grid grid-cols-2 gap-3 lg:hidden">
-                <Button
-                  variant="outline"
-                  onClick={handleWishlist}
-                  className={cn(
-                    isWishlisted && "text-red-500 border-red-200 dark:border-red-800"
-                  )}
-                >
-                  <Heart className={cn("mr-2 h-4 w-4", isWishlisted && "fill-current")} />
-                  {isWishlisted ? "Saved" : "Save"}
-                </Button>
-                <Button variant="outline" onClick={handleShare}>
-                  <Share2 className="mr-2 h-4 w-4" />
-                  Share
-                </Button>
-              </div>
+              <Button variant="outline" onClick={handleShare}>
+                <Share2 className="mr-2 h-4 w-4" />
+                Share
+              </Button>
             </div>
 
           </div>
