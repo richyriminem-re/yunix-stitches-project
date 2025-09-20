@@ -43,11 +43,11 @@ const Footer = () => {
     href: "/contact"
   }];
   const services = [{
-    name: "Custom Tailoring",
-    href: "/services/custom-tailoring"
-  }, {
     name: "Bridal Couture",
     href: "/services/bridal"
+  }, {
+    name: "Custom Tailoring",
+    href: "/services/custom-tailoring"
   }, {
     name: "Aso-Ebi Collections",
     href: "/services/aso-ebi"
