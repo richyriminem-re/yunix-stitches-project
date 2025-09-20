@@ -1,10 +1,33 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
+import { smoothScrollToElement } from "@/lib/utils";
 const Footer = () => {
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'd like to get more information about Yunix Stitches services.");
     window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
+  };
+
+  const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      // Already on homepage, just scroll to about
+      smoothScrollToElement('about');
+    } else {
+      // Navigate to homepage with hash, then scroll
+      window.location.href = '/#about';
+    }
+  };
+
+  const handleServicesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      // Already on homepage, just scroll to services
+      smoothScrollToElement('services');
+    } else {
+      // Navigate to homepage with hash, then scroll
+      window.location.href = '/#services';
+    }
   };
   const quickLinks = [{
     name: "About Us",
@@ -130,7 +153,11 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
               <h4 className="text-xl font-serif font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-4">
                 {quickLinks.map(link => <li key={link.name}>
-                    <a href={link.href} className="opacity-90 hover:opacity-100 hover:text-secondary transition-all duration-200">
+                    <a 
+                      href={link.href} 
+                      onClick={link.name === 'About Us' ? handleAboutClick : link.name === 'Services' ? handleServicesClick : undefined}
+                      className="opacity-90 hover:opacity-100 hover:text-secondary transition-all duration-200"
+                    >
                       {link.name}
                     </a>
                   </li>)}
