@@ -120,8 +120,8 @@ const Contact = () => {
       icon: "tiktok",
       title: "TikTok",
       description: "Watch our fashion content",
-      value: "@yunix_stitches_",
-      action: "https://tiktok.com/@yunix_stitches_"
+      value: "@yunix_stitches",
+      action: "https://tiktok.com/@yunix_stitches"
     }
   ];
 
