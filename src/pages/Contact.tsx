@@ -198,6 +198,8 @@ const Contact = () => {
                     <a
                       href={typeof method.action === 'string' ? method.action : '#'}
                       onClick={typeof method.action === 'function' ? method.action : undefined}
+                      target={typeof method.action === 'string' && (method.action.startsWith('tel:') || method.action.startsWith('mailto:')) ? '_blank' : undefined}
+                      rel={typeof method.action === 'string' && (method.action.startsWith('tel:') || method.action.startsWith('mailto:')) ? 'noopener noreferrer' : undefined}
                       className="text-secondary font-medium hover:text-secondary/80 transition-colors"
                     >
                       {method.value}
