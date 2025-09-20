@@ -205,7 +205,6 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm opacity-90">
               <a href="/privacy" className="hover:text-secondary transition-colors">Privacy Policy</a>
               <a href="/terms" className="hover:text-secondary transition-colors">Terms of Service</a>
-              <a href="/returns" className="hover:text-secondary transition-colors">Returns & Exchanges</a>
             </div>
           </div>
         </div>
