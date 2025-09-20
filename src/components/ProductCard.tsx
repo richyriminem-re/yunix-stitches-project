@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +14,7 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardProps) => {
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isWishlisted, setIsWishlisted] = useState(false);
@@ -359,7 +361,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
         {/* View Product Button - Touch Optimized */}
         <Button 
           className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
-          onClick={() => window.location.href = `/product/${product.id}`}
+          onClick={() => navigate(`/product/${product.id}`)}
         >
           <Eye className="h-4 w-4 mr-2" />
           VIEW
