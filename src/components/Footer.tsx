@@ -29,6 +29,17 @@ const Footer = () => {
       window.location.href = '/#services';
     }
   };
+
+  const handleServiceLinkClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      // Already on homepage, just scroll to services
+      smoothScrollToElement('services');
+    } else {
+      // Navigate to homepage with hash, then scroll
+      window.location.href = '/#services';
+    }
+  };
   const quickLinks = [{
     name: "About Us",
     href: "/about"
@@ -169,7 +180,11 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
               <h4 className="text-xl font-serif font-semibold mb-6">Our Services</h4>
               <ul className="space-y-4">
                 {services.map(service => <li key={service.name}>
-                    <a href={service.href} className="opacity-90 hover:opacity-100 hover:text-secondary transition-all duration-200">
+                    <a 
+                      href={service.href} 
+                      onClick={handleServiceLinkClick}
+                      className="opacity-90 hover:opacity-100 hover:text-secondary transition-all duration-200"
+                    >
                       {service.name}
                     </a>
                   </li>)}
