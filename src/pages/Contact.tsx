@@ -268,8 +268,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div>
-              <Card className="shadow-luxury">
+            <Card className="shadow-luxury">
                 <CardHeader>
                   <CardTitle className="text-2xl font-serif">Send us a Message</CardTitle>
                   <CardDescription>
@@ -468,7 +467,6 @@ const Contact = () => {
                   </Form>
                 </CardContent>
               </Card>
-            </div>
           </div>
         </div>
       </section>
