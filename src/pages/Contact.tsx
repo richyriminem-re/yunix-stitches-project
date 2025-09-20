@@ -77,7 +77,7 @@ const Contact = () => {
       ? `Hi! I'm interested in ${service}. I'd like to schedule a consultation.`
       : "Hi! I'd like to learn more about your services and schedule a consultation.";
     
-    const whatsappUrl = `https://wa.me/2348123456789?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/2349019898642?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -92,8 +92,8 @@ const Contact = () => {
       icon: Phone,
       title: "Phone",
       description: "Call us directly for immediate assistance",
-      value: "+234 812 345 6789",
-      action: "tel:+2348123456789"
+      value: "+234 901 989 8642",
+      action: "tel:+2349019898642"
     },
     {
       icon: Mail,
@@ -113,8 +113,15 @@ const Contact = () => {
       icon: Instagram,
       title: "Instagram",
       description: "Follow our latest collections",
-      value: "@yunixstitches",
-      action: "https://instagram.com/yunixstitches"
+      value: "@yunix_stitches_",
+      action: "https://instagram.com/yunix_stitches_"
+    },
+    {
+      icon: "tiktok",
+      title: "TikTok",
+      description: "Watch our fashion content",
+      value: "@yunix_stitches_",
+      action: "https://tiktok.com/@yunix_stitches_"
     }
   ];
 
@@ -180,6 +187,8 @@ const Contact = () => {
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 mb-4 group-hover:bg-secondary/20 transition-colors">
                       {method.icon === "whatsapp" ? (
                         <i className="fa-brands fa-whatsapp text-xl text-secondary" />
+                      ) : method.icon === "tiktok" ? (
+                        <i className="fa-brands fa-tiktok text-xl text-secondary" />
                       ) : (
                         <Icon className="h-6 w-6 text-secondary" />
                       )}
@@ -220,9 +229,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold text-lg mb-1">Location</h3>
                       <p className="text-muted-foreground">
-                        123 Fashion Avenue<br />
-                        Victoria Island, Lagos<br />
-                        Nigeria
+                        Igbatoro Road, Opposite HOB<br />
+                        (After Federal Secretariat)<br />
+                        Alagbaka, Akure, Ondo State, Nigeria
                       </p>
                     </div>
                   </div>
@@ -267,208 +276,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div>
-              <Card className="shadow-luxury">
-                <CardHeader>
-                  <CardTitle className="text-2xl font-serif">Send us a Message</CardTitle>
-                  <CardDescription>
-                    Fill out the form below and we'll get back to you within 24 hours.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                      
-                      {/* Name */}
-                      <FormField
-                        control={form.control}
-                        name="name"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex items-center gap-2">
-                              <User className="h-4 w-4" />
-                              Full Name *
-                            </FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter your full name" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Email */}
-                      <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex items-center gap-2">
-                              <Mail className="h-4 w-4" />
-                              Email Address *
-                            </FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="Enter your email" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Phone */}
-                      <FormField
-                        control={form.control}
-                        name="phone"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex items-center gap-2">
-                              <Phone className="h-4 w-4" />
-                              Phone Number
-                            </FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter your phone number" {...field} />
-                            </FormControl>
-                            <FormDescription>
-                              Optional - helps us contact you faster
-                            </FormDescription>
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Service Interest */}
-                      <FormField
-                        control={form.control}
-                        name="service"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Service Interest *</FormLabel>
-                            <Select onValueChange={field.onChange} value={field.value}>
-                              <FormControl>
-                                <SelectTrigger>
-                                  <SelectValue placeholder="Select a service" />
-                                </SelectTrigger>
-                              </FormControl>
-                              <SelectContent>
-                                <SelectItem value="bridal-couture">Bridal Couture</SelectItem>
-                                <SelectItem value="custom-tailoring">Custom Tailoring</SelectItem>
-                                <SelectItem value="asoebi-collections">Aso-Ebi Collections</SelectItem>
-                                <SelectItem value="style-consultation">Style Consultation</SelectItem>
-                                <SelectItem value="corporate-wear">Corporate Wear</SelectItem>
-                                <SelectItem value="other">Other</SelectItem>
-                              </SelectContent>
-                            </Select>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Event Date */}
-                      <FormField
-                        control={form.control}
-                        name="eventDate"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="flex items-center gap-2">
-                              <Calendar className="h-4 w-4" />
-                              Event Date
-                            </FormLabel>
-                            <FormControl>
-                              <Input type="date" {...field} />
-                            </FormControl>
-                            <FormDescription>
-                              If you have a specific event date, let us know
-                            </FormDescription>
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Preferred Contact Method */}
-                      <FormField
-                        control={form.control}
-                        name="contactMethod"
-                        render={({ field }) => (
-                          <FormItem className="space-y-3">
-                            <FormLabel>Preferred Contact Method *</FormLabel>
-                            <FormControl>
-                              <RadioGroup
-                                onValueChange={field.onChange}
-                                value={field.value}
-                                className="flex flex-col space-y-2"
-                              >
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="email" id="email" />
-                                  <Label htmlFor="email" className="flex items-center gap-2">
-                                    <Mail className="h-4 w-4" />
-                                    Email
-                                  </Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="phone" id="phone" />
-                                  <Label htmlFor="phone" className="flex items-center gap-2">
-                                    <Phone className="h-4 w-4" />
-                                    Phone Call
-                                  </Label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                  <RadioGroupItem value="whatsapp" id="whatsapp" />
-                                  <Label htmlFor="whatsapp" className="flex items-center gap-2">
-                                    <i className="fa-brands fa-whatsapp" />
-                                    WhatsApp
-                                  </Label>
-                                </div>
-                              </RadioGroup>
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Message */}
-                      <FormField
-                        control={form.control}
-                        name="message"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Message *</FormLabel>
-                            <FormControl>
-                              <Textarea 
-                                placeholder="Tell us about your vision, style preferences, budget, and any specific requirements..."
-                                className="min-h-[120px] resize-none"
-                                {...field}
-                              />
-                            </FormControl>
-                            <FormDescription>
-                              The more details you provide, the better we can help you
-                            </FormDescription>
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-
-                      {/* Submit Button */}
-                      <Button 
-                        type="submit" 
-                        className="w-full btn-bronze h-12"
-                        disabled={isSubmitting}
-                      >
-                        {isSubmitting ? (
-                          <div className="flex items-center gap-2">
-                            <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                            Sending Message...
-                          </div>
-                        ) : (
-                          <div className="flex items-center gap-2">
-                            <Send className="h-4 w-4" />
-                            Send Message
-                          </div>
-                        )}
-                      </Button>
-                    </form>
-                  </Form>
-                </CardContent>
-              </Card>
-            </div>
           </div>
         </div>
       </section>
