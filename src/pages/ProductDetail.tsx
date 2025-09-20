@@ -493,32 +493,6 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <Separator />
-
-            {/* Features */}
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-              <div className="flex items-center space-x-3">
-                <Truck className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <p className="text-sm font-medium">Free Delivery</p>
-                  <p className="text-xs text-muted-foreground">On orders over ₦50,000</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Shield className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <p className="text-sm font-medium">Quality Guarantee</p>
-                  <p className="text-xs text-muted-foreground">Premium materials</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-3">
-                <RotateCcw className="h-5 w-5 text-muted-foreground" />
-                <div>
-                  <p className="text-sm font-medium">Easy Returns</p>
-                  <p className="text-xs text-muted-foreground">7-day return policy</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -578,31 +552,6 @@ const ProductDetail = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="shipping">
-              <AccordionTrigger className="text-left">
-                Shipping & Returns
-              </AccordionTrigger>
-              <AccordionContent className="space-y-4">
-                <div>
-                  <h4 className="font-medium mb-2">Shipping Information</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Free delivery on orders over ₦50,000</li>
-                    <li>• Standard delivery: 3-5 business days</li>
-                    <li>• Express delivery: 1-2 business days (additional charges apply)</li>
-                    <li>• Lagos delivery: Same day delivery available</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-medium mb-2">Return Policy</h4>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• 7-day return policy</li>
-                    <li>• Items must be unworn and in original condition</li>
-                    <li>• Custom-made items are non-returnable</li>
-                    <li>• Return shipping costs are covered by customer</li>
-                  </ul>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
           </Accordion>
         </div>
       </main>
