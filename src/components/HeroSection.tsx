@@ -92,8 +92,8 @@ const HeroSection = () => {
             <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">Happy Clients</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/20 dark:bg-black/20 dark:border-white/10">
-            <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">100%</div>
-            <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">Custom Fit Guarantee</div>
+            <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">Premium</div>
+            <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">Materials Only</div>
           </div>
         </div>
       </div>
