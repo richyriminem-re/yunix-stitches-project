@@ -75,37 +75,38 @@ const AboutPreview = () => {
 
           {/* Image/Stats Section */}
           <div className="relative">
-            <div className="bg-gradient-luxury rounded-2xl p-8 text-white dark:bg-gradient-to-br dark:from-muted dark:to-accent/80">
-              <h3 className="text-2xl font-serif font-bold mb-6 text-center">
+            <div className="bg-gradient-luxury rounded-2xl p-6 sm:p-8 lg:p-10 text-white dark:bg-gradient-to-br dark:from-muted dark:to-accent/80">
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold mb-8 sm:mb-10 text-center">
                 Our Journey in Numbers
               </h3>
               
-              <div className="grid grid-cols-2 gap-6">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-secondary mb-2">100%</div>
-                  <div className="text-sm opacity-90">Quality Guarantee</div>
+              <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-10">
+                <div className="text-center p-2 sm:p-4">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-2 sm:mb-3">100%</div>
+                  <div className="text-xs sm:text-sm lg:text-base opacity-90 font-medium">Quality Guarantee</div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-secondary mb-2">500+</div>
-                  <div className="text-sm opacity-90">Happy Clients</div>
+                <div className="text-center p-2 sm:p-4">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-2 sm:mb-3">500+</div>
+                  <div className="text-xs sm:text-sm lg:text-base opacity-90 font-medium">Happy Clients</div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-secondary mb-2">50+</div>
-                  <div className="text-sm opacity-90">Bridal Designs</div>
+                <div className="text-center p-2 sm:p-4">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-2 sm:mb-3">50+</div>
+                  <div className="text-xs sm:text-sm lg:text-base opacity-90 font-medium">Bridal Designs</div>
                 </div>
                 
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-secondary mb-2">1000+</div>
-                  <div className="text-sm opacity-90">Custom Pieces</div>
+                <div className="text-center p-2 sm:p-4">
+                  <div className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary mb-2 sm:mb-3">1000+</div>
+                  <div className="text-xs sm:text-sm lg:text-base opacity-90 font-medium">Custom Pieces</div>
                 </div>
               </div>
 
-              <div className="mt-8 p-4 bg-white/10 rounded-lg backdrop-blur-sm dark:bg-black/20">
-                <p className="text-sm italic text-center">
+              <div className="p-4 sm:p-6 bg-white/10 rounded-xl backdrop-blur-sm dark:bg-black/20">
+                <p className="text-sm sm:text-base italic text-center leading-relaxed">
                   "Yunix Stitches transformed my vision into the most beautiful wedding dress. 
-                  Every detail was perfect!" - Adunni O.
+                  Every detail was perfect!" 
+                  <span className="block mt-2 text-xs sm:text-sm font-semibold text-secondary">- Adunni O.</span>
                 </p>
               </div>
             </div>
