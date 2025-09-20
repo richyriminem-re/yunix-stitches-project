@@ -84,8 +84,8 @@ const HeroSection = () => {
         {/* Trust Indicators */}
         <div className="hidden sm:grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 text-center max-w-2xl mx-auto">
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/20 dark:bg-black/20 dark:border-white/10">
-            <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">15+</div>
-            <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">Years Experience</div>
+            <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">100%</div>
+            <div className="text-xs sm:text-sm text-gray-300 dark:text-gray-400">Quality Guarantee</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/20 dark:bg-black/20 dark:border-white/10">
             <div className="text-xl sm:text-2xl font-bold text-secondary mb-1">500+</div>

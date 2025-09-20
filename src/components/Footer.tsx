@@ -99,8 +99,8 @@ const Footer = () => {
                 Yunix Stitches
               </h2>
               <p className="text-lg opacity-90 mb-6 leading-relaxed">
-                Nigeria's premier luxury fashion house, crafting elegant traditional and 
-                contemporary wear for over 15 years. Where heritage meets innovation.
+                Nigeria's premier luxury fashion house, specializing in elegant traditional and 
+                contemporary wear with master craftsmanship. Where heritage meets innovation.
               </p>
               
               {/* Contact Info */}

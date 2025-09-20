@@ -14,7 +14,7 @@ const AboutPreview = () => {
             <div className="elegant-divider mb-4 sm:mb-6"></div>
             
             <p className="text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6 leading-relaxed">
-              For over 15 years, Yunix Stitches has been the premier destination for luxury Nigerian fashion. 
+              As Nigeria's premier luxury fashion house, Yunix Stitches is the distinguished destination for luxury Nigerian fashion. 
               We blend traditional craftsmanship with contemporary design, creating timeless pieces that 
               celebrate your unique style and cultural identity.
             </p>
@@ -32,7 +32,7 @@ const AboutPreview = () => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <h4 className="font-semibold text-primary text-sm sm:text-base">Expert Craftsmanship</h4>
-                  <p className="text-xs sm:text-sm text-muted-foreground">15+ years experience</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground">Master craftsmanship</p>
                 </div>
               </div>
 
@@ -82,8 +82,8 @@ const AboutPreview = () => {
               
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-secondary mb-2">15+</div>
-                  <div className="text-sm opacity-90">Years in Fashion</div>
+                  <div className="text-4xl font-bold text-secondary mb-2">100%</div>
+                  <div className="text-sm opacity-90">Quality Guarantee</div>
                 </div>
                 
                 <div className="text-center">
