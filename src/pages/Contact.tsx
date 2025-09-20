@@ -8,7 +8,6 @@ import {
   Mail, 
   MapPin, 
   Clock, 
-  MessageCircle, 
   Instagram, 
   Send,
   CheckCircle,
@@ -104,7 +103,7 @@ const Contact = () => {
       action: "mailto:hello@yunixstitches.com"
     },
     {
-      icon: MessageCircle,
+      icon: "whatsapp",
       title: "WhatsApp",
       description: "Quick chat and consultations",
       value: "Chat with us",
@@ -179,7 +178,11 @@ const Contact = () => {
                 <Card key={method.title} className="text-center hover:shadow-luxury transition-all duration-300 group cursor-pointer">
                   <CardContent className="pt-6">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/10 mb-4 group-hover:bg-secondary/20 transition-colors">
-                      <Icon className="h-6 w-6 text-secondary" />
+                      {method.icon === "whatsapp" ? (
+                        <i className="fa-brands fa-whatsapp text-xl text-secondary" />
+                      ) : (
+                        <Icon className="h-6 w-6 text-secondary" />
+                      )}
                     </div>
                     <h3 className="font-serif font-semibold text-lg mb-2">{method.title}</h3>
                     <p className="text-muted-foreground text-sm mb-3">{method.description}</p>
@@ -410,7 +413,7 @@ const Contact = () => {
                                 <div className="flex items-center space-x-2">
                                   <RadioGroupItem value="whatsapp" id="whatsapp" />
                                   <Label htmlFor="whatsapp" className="flex items-center gap-2">
-                                    <MessageCircle className="h-4 w-4" />
+                                    <i className="fa-brands fa-whatsapp" />
                                     WhatsApp
                                   </Label>
                                 </div>
