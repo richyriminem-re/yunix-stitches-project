@@ -211,69 +211,103 @@ const Contact = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-12 sm:py-16 lg:py-20 bg-muted/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="max-w-4xl mx-auto">
             
-            {/* Contact Information */}
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-3xl font-serif font-bold text-primary mb-6">Visit Our Atelier</h2>
-                <div className="space-y-6">
-                  
-                  {/* Address */}
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
-                      <MapPin className="h-6 w-6 text-secondary" />
+            {/* Section Header */}
+            <div className="text-center mb-12 sm:mb-16">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-primary mb-4">
+                Visit Our Atelier
+              </h2>
+              <div className="elegant-divider mx-auto"></div>
+              <p className="text-muted-foreground text-sm sm:text-base max-w-2xl mx-auto mt-4">
+                Experience our personalized service in person or connect with us instantly
+              </p>
+            </div>
+
+            {/* Contact Information Grid */}
+            <div className="grid gap-6 sm:gap-8 lg:gap-10 mb-8 sm:mb-12">
+              
+              {/* Location Card */}
+              <Card className="hover:shadow-luxury transition-all duration-300">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+                    <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto sm:mx-0">
+                      <MapPin className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-1">Location</h3>
-                      <p className="text-muted-foreground">
+                    <div className="text-center sm:text-left flex-1">
+                      <h3 className="font-serif font-semibold text-xl sm:text-2xl text-primary mb-3">Our Location</h3>
+                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
                         Igbatoro Road, Opposite HOB<br />
                         (After Federal Secretariat)<br />
                         Alagbaka, Akure, Ondo State, Nigeria
                       </p>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
 
-                  {/* Business Hours */}
-                  <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
-                      <Clock className="h-6 w-6 text-secondary" />
+              {/* Business Hours Card */}
+              <Card className="hover:shadow-luxury transition-all duration-300">
+                <CardContent className="p-6 sm:p-8">
+                  <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+                    <div className="flex-shrink-0 w-14 h-14 sm:w-16 sm:h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto sm:mx-0">
+                      <Clock className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-lg mb-2">Business Hours</h3>
-                      <div className="space-y-1">
+                    <div className="flex-1">
+                      <h3 className="font-serif font-semibold text-xl sm:text-2xl text-primary mb-4 text-center sm:text-left">Business Hours</h3>
+                      <div className="space-y-2 sm:space-y-3">
                         {businessHours.map((schedule) => (
-                          <div key={schedule.day} className="flex justify-between text-muted-foreground">
-                            <span>{schedule.day}</span>
-                            <span>{schedule.time}</span>
+                          <div key={schedule.day} className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-4 text-center sm:text-left">
+                            <span className="font-medium text-foreground text-sm sm:text-base">{schedule.day}</span>
+                            <span className="text-muted-foreground text-sm sm:text-base">{schedule.time}</span>
                           </div>
                         ))}
                       </div>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+            </div>
 
-                  {/* Quick WhatsApp */}
-                  <Card className="bg-gradient-to-r from-secondary/10 to-secondary/5 border-secondary/20">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-4">
-                        <i className="fa-brands fa-whatsapp text-2xl text-secondary" />
-                        <div className="flex-1">
-                          <h3 className="font-semibold text-lg">Need Quick Help?</h3>
-                          <p className="text-muted-foreground text-sm">Get instant support via WhatsApp</p>
-                        </div>
-                        <Button 
-                          onClick={() => handleWhatsAppContact()}
-                          className="btn-bronze"
-                        >
-                          Chat Now
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
-              </div>
+            {/* WhatsApp CTA Section */}
+            <div className="relative">
+              <Card className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/20 dark:to-green-900/20 border-green-200 dark:border-green-800 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1">
+                <CardContent className="p-6 sm:p-8 lg:p-10">
+                  <div className="text-center">
+                    {/* WhatsApp Icon */}
+                    <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-green-500 rounded-full mb-6 shadow-lg">
+                      <i className="fa-brands fa-whatsapp text-3xl sm:text-4xl text-white" />
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="mb-6 sm:mb-8">
+                      <h3 className="font-serif font-bold text-2xl sm:text-3xl lg:text-4xl text-primary mb-3 sm:mb-4">
+                        Need Quick Help?
+                      </h3>
+                      <p className="text-muted-foreground text-base sm:text-lg lg:text-xl max-w-md mx-auto leading-relaxed">
+                        Get instant support and personalized consultation via WhatsApp
+                      </p>
+                    </div>
+
+                    {/* CTA Button */}
+                    <Button 
+                      onClick={() => handleWhatsAppContact()}
+                      size="lg"
+                      className="bg-green-500 hover:bg-green-600 text-white border-0 px-8 sm:px-12 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                    >
+                      <i className="fa-brands fa-whatsapp mr-3 text-xl" />
+                      Start WhatsApp Chat
+                    </Button>
+                    
+                    {/* Additional Info */}
+                    <p className="text-xs sm:text-sm text-muted-foreground mt-4 sm:mt-6">
+                      Usually responds within minutes • Free consultation
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
           </div>
