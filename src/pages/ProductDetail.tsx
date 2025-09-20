@@ -201,7 +201,7 @@ const ProductDetail = () => {
         </div>
       </div>
 
-      <main className="container mx-auto px-4 py-6 lg:px-6 lg:py-8 pt-20 lg:pt-8">
+      <main className="container mx-auto px-4 py-6 lg:px-6 lg:py-8">
         {/* Breadcrumb - Hidden on mobile */}
         <div className="mb-6 hidden lg:block">
           <Breadcrumb>
