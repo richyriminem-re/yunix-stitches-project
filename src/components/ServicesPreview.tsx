@@ -46,7 +46,7 @@ const ServicesPreview = () => {
   };
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-background">
+    <section id="services" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 to-background">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">

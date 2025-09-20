@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Menu, Search, ShoppingBag, User, ChevronDown, Calendar, ArrowRight } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
+import { smoothScrollToElement } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,6 +12,17 @@ const Navigation = () => {
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'm interested in booking a consultation for custom tailoring.");
     window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+  };
+
+  const handleServicesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      // Already on homepage, just scroll to services
+      smoothScrollToElement('services');
+    } else {
+      // Navigate to homepage with hash, then scroll
+      window.location.href = '/#services';
+    }
   };
 
   const navItems = [
@@ -82,6 +94,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
+                  onClick={item.name === 'Services' ? handleServicesClick : undefined}
                   className="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
                 >
                   {item.name}
@@ -133,7 +146,10 @@ const Navigation = () => {
                       key={item.name}
                       href={item.href}
                       className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
-                      onClick={() => setIsOpen(false)}
+                      onClick={(e) => {
+                        setIsOpen(false);
+                        if (item.name === 'Services') handleServicesClick(e);
+                      }}
                     >
                       {item.name}
                     </a>
