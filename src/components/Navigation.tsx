@@ -25,6 +25,17 @@ const Navigation = () => {
     }
   };
 
+  const handleAboutClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (window.location.pathname === '/') {
+      // Already on homepage, just scroll to about
+      smoothScrollToElement('about');
+    } else {
+      // Navigate to homepage with hash, then scroll
+      window.location.href = '/#about';
+    }
+  };
+
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Shop", href: "/shop" },
@@ -94,7 +105,7 @@ const Navigation = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={item.name === 'Services' ? handleServicesClick : undefined}
+                  onClick={item.name === 'Services' ? handleServicesClick : item.name === 'About' ? handleAboutClick : undefined}
                   className="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
                 >
                   {item.name}
@@ -149,6 +160,7 @@ const Navigation = () => {
                       onClick={(e) => {
                         setIsOpen(false);
                         if (item.name === 'Services') handleServicesClick(e);
+                        if (item.name === 'About') handleAboutClick(e);
                       }}
                     >
                       {item.name}

@@ -3,7 +3,7 @@ import { ArrowRight, Scissors, Heart, Crown, Users } from "lucide-react";
 
 const AboutPreview = () => {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-warm-taupe/20 to-background">
+    <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-warm-taupe/20 to-background">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Content */}

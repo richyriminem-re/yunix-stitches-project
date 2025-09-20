@@ -9,11 +9,17 @@ import { smoothScrollToElement } from "@/lib/utils";
 
 const Index = () => {
   useEffect(() => {
-    // Check if URL has #services hash and scroll to it
-    if (window.location.hash === '#services') {
+    // Check if URL has hash and scroll to it
+    const hash = window.location.hash;
+    if (hash === '#services') {
       // Small delay to ensure component is mounted
       setTimeout(() => {
         smoothScrollToElement('services');
+      }, 100);
+    } else if (hash === '#about') {
+      // Small delay to ensure component is mounted
+      setTimeout(() => {
+        smoothScrollToElement('about');
       }, 100);
     }
   }, []);
