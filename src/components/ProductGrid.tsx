@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ProductCard from "@/components/ProductCard";
 import QuickView from "@/components/QuickView";
-import { Product } from "@/pages/Shop";
+import { type Product } from "@/data/products";
 
 interface ProductGridProps {
   products: Product[];

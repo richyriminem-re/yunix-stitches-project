@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Heart, Share2, ShoppingBag, Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { Product } from "@/pages/Shop";
+import { type Product } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 
 interface QuickViewProps {

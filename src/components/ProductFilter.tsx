@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import PriceRangeFilter from "@/components/PriceRangeFilter";
 import CategoryFilter from "@/components/CategoryFilter";
-import { Product } from "@/pages/Shop";
+import { type Product } from "@/data/products";
 
 interface ProductFilterProps {
   activeCategory: string;

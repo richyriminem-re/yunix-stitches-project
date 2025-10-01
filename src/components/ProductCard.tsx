@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Eye, ShoppingBag, Star, Share2 } from "lucide-react";
-import { Product } from "@/pages/Shop";
+import { type Product } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 
 interface ProductCardProps {
