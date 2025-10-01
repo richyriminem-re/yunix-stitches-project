@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { ChevronLeft, Heart, Share2, Star, Minus, Plus, Truck, Shield, RotateCcw, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -49,12 +50,12 @@ const allProducts: Product[] = [
     rating: 4.9,
     reviews: 24,
     isNew: true,
-    description: "Luxurious emerald green Aso-ebi with intricate gold beadwork and modern tailoring. This stunning piece features hand-embroidered details and premium quality fabric that drapes beautifully. Perfect for special occasions and formal events.",
+    description: "Experience luxury with our stunning Emerald Elegance Aso-Ebi, a masterpiece of Nigerian fashion craftsmanship. This exquisite traditional outfit features intricate gold beadwork meticulously hand-embroidered by skilled artisans, creating a breathtaking pattern that catches the light beautifully. Made from premium quality Ankara fabric with superior draping properties, this ensemble is perfect for weddings, owambe parties, and special celebrations. The modern tailoring ensures a flattering fit while honoring traditional Nigerian style. Each piece is carefully crafted to make you stand out at any event, combining cultural heritage with contemporary elegance.",
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["Emerald", "Navy", "Burgundy"],
     inStock: true,
     stockCount: 5,
-    tags: ["luxury", "traditional", "beadwork"]
+    tags: ["luxury", "traditional", "beadwork", "wedding", "owambe", "Nigerian fashion"]
   },
   {
     id: 2,
@@ -65,11 +66,11 @@ const allProducts: Product[] = [
     images: [product2, product1],
     rating: 4.8,
     reviews: 22,
-    description: "Handcrafted corset with vintage lace details and perfect fit. Made with premium materials and featuring adjustable lacing for the perfect silhouette.",
+    description: "Discover timeless elegance with our handcrafted Vintage Lace Corset, expertly designed to create the perfect silhouette. This stunning corset features premium quality vintage lace with delicate floral patterns and intricate detailing that exudes sophistication. Constructed with durable boning for excellent support and shape retention, it includes adjustable back lacing for a customizable fit that flatters every body type. The high-quality materials ensure comfort throughout the day while maintaining structure. Ideal for special occasions, photoshoots, bridal wear, or adding a touch of elegance to your evening ensemble. Each corset is carefully crafted in Nigeria by skilled seamstresses who understand the art of perfect fit and feminine beauty.",
     sizes: ["XS", "S", "M", "L"],
     colors: ["Ivory", "Black", "Blush"],
     inStock: true,
-    tags: ["vintage", "lace", "fitted"]
+    tags: ["vintage", "lace", "fitted", "bridal", "elegant", "handcrafted"]
   },
   {
     id: 3,
@@ -80,11 +81,11 @@ const allProducts: Product[] = [
     images: [product3, product2],
     rating: 4.7,
     reviews: 15,
-    description: "Professional tailored suit perfect for corporate settings. Made with high-quality fabric and expert craftsmanship for a powerful, confident look.",
+    description: "Command attention and confidence with our Executive Power Suit, professionally tailored for the modern Nigerian businesswoman. This sophisticated two-piece ensemble is crafted from premium wool-blend fabric that resists wrinkles and maintains its sharp appearance throughout your busy workday. The blazer features structured shoulders, a flattering cut, and quality lining for comfort and durability. The matching trousers are designed with a modern fit that balances professionalism with style. Perfect for important meetings, corporate events, presentations, and any professional setting where you need to make a lasting impression. Our expert tailors ensure precise measurements and impeccable finishing, giving you a suit that fits like it was made just for you—because it was.",
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["Charcoal", "Navy", "Black"],
     inStock: true,
-    tags: ["professional", "tailored", "modern"]
+    tags: ["professional", "tailored", "modern", "corporate", "business", "executive"]
   }
 ];
 
@@ -161,8 +162,73 @@ const ProductDetail = () => {
   const savings = product.originalPrice ? product.originalPrice - product.price : 0;
   const savingsPercentage = product.originalPrice ? Math.round((savings / product.originalPrice) * 100) : 0;
 
+  // Generate structured data for SEO
+  const structuredData = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    name: product.name,
+    image: product.images,
+    description: product.description,
+    brand: {
+      "@type": "Brand",
+      name: "Yunix Stitches"
+    },
+    offers: {
+      "@type": "Offer",
+      url: window.location.href,
+      priceCurrency: "NGN",
+      price: product.price,
+      priceValidUntil: "2025-12-31",
+      itemCondition: "https://schema.org/NewCondition",
+      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      seller: {
+        "@type": "Organization",
+        name: "Yunix Stitches"
+      }
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: product.rating,
+      reviewCount: product.reviews
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{product.name} - Buy Premium {product.categoryName} | Yunix Stitches Nigeria</title>
+        <meta 
+          name="description" 
+          content={`${product.name} - ${product.description.substring(0, 155)}... Shop now at Yunix Stitches. ₦${product.price.toLocaleString()}`} 
+        />
+        <meta 
+          name="keywords" 
+          content={`${product.name}, ${product.categoryName}, ${product.tags.join(', ')}, Nigerian fashion, custom tailoring, buy ${product.categoryName} online Nigeria`} 
+        />
+        <link rel="canonical" href={window.location.href} />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="product" />
+        <meta property="og:url" content={window.location.href} />
+        <meta property="og:title" content={`${product.name} - ${product.categoryName} | Yunix Stitches`} />
+        <meta property="og:description" content={product.description} />
+        <meta property="og:image" content={product.images[0]} />
+        <meta property="product:price:amount" content={product.price.toString()} />
+        <meta property="product:price:currency" content="NGN" />
+        
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={window.location.href} />
+        <meta name="twitter:title" content={`${product.name} - ${product.categoryName}`} />
+        <meta name="twitter:description" content={product.description} />
+        <meta name="twitter:image" content={product.images[0]} />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
       <Navigation />
       
       {/* Mobile Header */}
@@ -240,7 +306,7 @@ const ProductDetail = () => {
             <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
               <img
                 src={product.images[selectedImageIndex]}
-                alt={product.name}
+                alt={`${product.name} - Premium ${product.categoryName} by Yunix Stitches Nigeria - View ${selectedImageIndex + 1} of ${product.images.length}`}
                 className="h-full w-full object-cover"
               />
               
@@ -303,7 +369,7 @@ const ProductDetail = () => {
                   >
                     <img
                       src={image}
-                      alt={`${product.name} ${index + 1}`}
+                      alt={`${product.name} thumbnail ${index + 1} - ${product.categoryName} detail view`}
                       className="h-full w-full object-cover"
                     />
                   </button>
