@@ -4,6 +4,10 @@ import Footer from "@/components/Footer";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { X } from "lucide-react";
+import product1 from "@/assets/product-1.jpg";
+import product2 from "@/assets/product-2.jpg";
+import product3 from "@/assets/product-3.jpg";
+import heroImage from "@/assets/hero-image.jpg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -11,37 +15,37 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: "/src/assets/product-1.jpg",
+      src: product1,
       alt: "Elegant Asoebi Design",
       category: "Asoebi",
     },
     {
       id: 2,
-      src: "/src/assets/product-2.jpg",
+      src: product2,
       alt: "Stunning Corset Dress",
       category: "Corset",
     },
     {
       id: 3,
-      src: "/src/assets/product-3.jpg",
+      src: product3,
       alt: "Corporate Elegance",
       category: "Corporate",
     },
     {
       id: 4,
-      src: "/src/assets/hero-image.jpg",
+      src: heroImage,
       alt: "Bridal Collection",
       category: "Bridal",
     },
     {
       id: 5,
-      src: "/src/assets/product-1.jpg",
+      src: product1,
       alt: "Traditional Bubu",
       category: "Bubu",
     },
     {
       id: 6,
-      src: "/src/assets/product-2.jpg",
+      src: product2,
       alt: "Ready to Wear",
       category: "Ready to Wear",
     },

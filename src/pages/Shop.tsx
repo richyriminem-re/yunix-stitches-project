@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { Search, Filter, Grid, List, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -152,7 +152,7 @@ const Shop = () => {
       <div className="pt-20 pb-4 border-b border-border">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="text-sm">
-            <a href="/" className="text-muted-foreground hover:text-primary">Home</a>
+            <Link to="/" className="text-muted-foreground hover:text-primary">Home</Link>
             <span className="mx-2 text-muted-foreground">/</span>
             <span className="text-primary">Shop</span>
           </nav>

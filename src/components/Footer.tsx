@@ -1,8 +1,11 @@
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 import { smoothScrollToElement } from "@/lib/utils";
 const Footer = () => {
+  const navigate = useNavigate();
+
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'd like to get more information about Yunix Stitches services.");
     window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
@@ -11,33 +14,27 @@ const Footer = () => {
   const handleAboutClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      // Already on homepage, just scroll to about
       smoothScrollToElement('about');
     } else {
-      // Navigate to homepage with hash, then scroll
-      window.location.href = '/#about';
+      navigate('/#about');
     }
   };
 
   const handleServicesClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      // Already on homepage, just scroll to services
       smoothScrollToElement('services');
     } else {
-      // Navigate to homepage with hash, then scroll
-      window.location.href = '/#services';
+      navigate('/#services');
     }
   };
 
   const handleServiceLinkClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      // Already on homepage, just scroll to services
       smoothScrollToElement('services');
     } else {
-      // Navigate to homepage with hash, then scroll
-      window.location.href = '/#services';
+      navigate('/#services');
     }
   };
   const quickLinks = [{
@@ -168,13 +165,13 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
               <h4 className="text-lg sm:text-xl font-serif font-semibold mb-4 sm:mb-6">Quick Links</h4>
               <ul className="space-y-3 sm:space-y-4">
                 {quickLinks.map(link => <li key={link.name}>
-                    <a 
-                      href={link.href} 
+                    <Link
+                      to={link.href} 
                       onClick={link.name === 'About Us' ? handleAboutClick : link.name === 'Services' ? handleServicesClick : undefined}
                       className="text-sm sm:text-base opacity-90 hover:opacity-100 hover:text-secondary transition-all duration-200 block py-1"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>)}
               </ul>
             </div>
@@ -184,13 +181,13 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
               <h4 className="text-lg sm:text-xl font-serif font-semibold mb-4 sm:mb-6">Our Services</h4>
               <ul className="space-y-3 sm:space-y-4">
                 {services.map(service => <li key={service.name}>
-                    <a 
-                      href={service.href} 
+                    <Link
+                      to={service.href} 
                       onClick={handleServiceLinkClick}
                       className="text-sm sm:text-base opacity-90 hover:opacity-100 hover:text-secondary transition-all duration-200 block py-1"
                     >
                       {service.name}
-                    </a>
+                    </Link>
                   </li>)}
               </ul>
             </div>
@@ -207,8 +204,8 @@ Alagbaka, Akure, Ondo State, Nigeria</span>
             </div>
             
             <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm opacity-90">
-              <a href="/privacy" className="hover:text-secondary transition-colors py-1">Privacy Policy</a>
-              <a href="/terms" className="hover:text-secondary transition-colors py-1">Terms of Service</a>
+              <Link to="/privacy" className="hover:text-secondary transition-colors py-1">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-secondary transition-colors py-1">Terms of Service</Link>
             </div>
           </div>
         </div>

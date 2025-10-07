@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -8,6 +9,7 @@ import { smoothScrollToElement } from "@/lib/utils";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'm interested in booking a consultation for custom tailoring.");
@@ -17,22 +19,18 @@ const Navigation = () => {
   const handleServicesClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      // Already on homepage, just scroll to services
       smoothScrollToElement('services');
     } else {
-      // Navigate to homepage with hash, then scroll
-      window.location.href = '/#services';
+      navigate('/#services');
     }
   };
 
   const handleAboutClick = (e: React.MouseEvent) => {
     e.preventDefault();
     if (window.location.pathname === '/') {
-      // Already on homepage, just scroll to about
       smoothScrollToElement('about');
     } else {
-      // Navigate to homepage with hash, then scroll
-      window.location.href = '/#about';
+      navigate('/#about');
     }
   };
 
@@ -61,24 +59,24 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="block">
+            <Link to="/" className="block">
               <h1 className="text-2xl font-serif font-bold text-primary hover:text-secondary transition-colors duration-300">
                 Yunix Stitches
               </h1>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               {navItems.slice(0, 2).map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   className="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
               
               {/* Categories Dropdown */}
@@ -90,26 +88,26 @@ const Navigation = () => {
                 <DropdownMenuContent className="w-56 bg-background border-border shadow-luxury">
                   {categories.map((category) => (
                     <DropdownMenuItem key={category.name} asChild>
-                      <a
-                        href={category.href}
+                      <Link
+                        to={category.href}
                         className="flex w-full px-2 py-2 text-sm text-foreground hover:text-secondary hover:bg-accent transition-colors cursor-pointer"
                       >
                         {category.name}
-                      </a>
+                      </Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
 
               {navItems.slice(2).map((item) => (
-                <a
+                <Link
                   key={item.name}
-                  href={item.href}
+                  to={item.href}
                   onClick={item.name === 'Services' ? handleServicesClick : item.name === 'About' ? handleAboutClick : undefined}
                   className="text-foreground hover:text-secondary transition-colors duration-200 font-medium"
                 >
                   {item.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
@@ -150,9 +148,9 @@ const Navigation = () => {
               <SheetContent className="bg-background border-border">
                 <div className="flex flex-col space-y-4 mt-8">
                   {navItems.map((item) => (
-                    <a
+                    <Link
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="text-lg font-medium text-foreground hover:text-secondary transition-colors"
                       onClick={(e) => {
                         setIsOpen(false);
@@ -161,7 +159,7 @@ const Navigation = () => {
                       }}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                   <div className="pt-4 border-t border-border">
                     <Button 
