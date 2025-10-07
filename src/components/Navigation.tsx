@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, Search, ShoppingBag, User, ChevronDown, Calendar, ArrowRight } from "lucide-react";
+import { Menu, Search, ShoppingBag, ChevronDown, Calendar, ArrowRight } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { smoothScrollToElement } from "@/lib/utils";
 
@@ -119,9 +119,6 @@ const Navigation = () => {
             <Button variant="ghost" size="sm">
               <Search className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="sm">
-              <User className="h-4 w-4" />
-            </Button>
             <Button variant="ghost" size="sm" className="relative">
               <ShoppingBag className="h-4 w-4" />
               <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
@@ -177,16 +174,10 @@ const Navigation = () => {
                       Book A Fitting
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
-                    <div className="flex space-x-4">
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <User className="h-4 w-4 mr-2" />
-                        Account
-                      </Button>
-                      <Button variant="outline" size="sm" className="flex-1">
-                        <ShoppingBag className="h-4 w-4 mr-2" />
-                        Cart (0)
-                      </Button>
-                    </div>
+                    <Button variant="outline" size="sm" className="w-full">
+                      <ShoppingBag className="h-4 w-4 mr-2" />
+                      Cart (0)
+                    </Button>
                   </div>
                 </div>
               </SheetContent>
