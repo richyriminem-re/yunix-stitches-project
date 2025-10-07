@@ -42,7 +42,7 @@ const ServicesPreview = () => {
     const message = encodeURIComponent(
       `Hello! I'd like to book a consultation for ${service.title}. Could you please provide more details about the process and available appointments?`
     );
-    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
   };
 
   return (

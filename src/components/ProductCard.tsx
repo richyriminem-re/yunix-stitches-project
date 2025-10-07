@@ -24,7 +24,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
     const message = encodeURIComponent(
       `Hi! I'm interested in the "${product.name}" priced at ₦${product.price.toLocaleString()}. Could you provide more details about sizing and delivery?`
     );
-    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
   };
 
   const toggleWishlist = () => {

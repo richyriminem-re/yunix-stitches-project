@@ -11,7 +11,7 @@ const Navigation = () => {
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'm interested in booking a consultation for custom tailoring.");
-    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
   };
 
   const handleServicesClick = (e: React.MouseEvent) => {

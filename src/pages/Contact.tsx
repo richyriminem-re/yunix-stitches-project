@@ -77,7 +77,7 @@ const Contact = () => {
       ? `Hi! I'm interested in ${service}. I'd like to schedule a consultation.`
       : "Hi! I'd like to learn more about your services and schedule a consultation.";
     
-    const whatsappUrl = `https://wa.me/2349019898642?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/234901989864?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

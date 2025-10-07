@@ -35,7 +35,7 @@ const QuickView = ({ product, isOpen, onClose }: QuickViewProps) => {
 Size: ${selectedSize}, Color: ${selectedColor}. 
 Could you provide more details about availability and delivery?`
     );
-    window.open(`https://wa.me/2348123456789?text=${message}`, '_blank');
+    window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
     onClose();
   };
 

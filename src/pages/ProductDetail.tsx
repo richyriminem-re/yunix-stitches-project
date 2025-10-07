@@ -47,7 +47,7 @@ const ProductDetail = () => {
 
   const handleWhatsAppOrder = () => {
     const message = `Hi! I'm interested in ordering the ${product.name} (₦${product.price.toLocaleString()})${selectedSize ? ` in size ${selectedSize}` : ''}${selectedColor ? ` in ${selectedColor}` : ''}, quantity: ${quantity}. Please send me more details.`;
-    const whatsappUrl = `https://wa.me/2348123456789?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/234901989864?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
     
     toast({
