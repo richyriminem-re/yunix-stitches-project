@@ -1,5 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Scissors, Heart, Crown, Users } from "lucide-react";
+import { Scissors, Heart, Crown, Users } from "lucide-react";
 
 const AboutPreview = () => {
   return (
@@ -66,11 +65,6 @@ const AboutPreview = () => {
                 </div>
               </div>
             </div>
-
-            <Button variant="luxury" size="lg">
-              Learn Our Story
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
           </div>
 
           {/* Image/Stats Section */}

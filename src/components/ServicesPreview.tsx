@@ -122,14 +122,9 @@ const ServicesPreview = () => {
             We'll guide you through every step of the process.
           </p>
           
-          <div className="flex flex-col space-y-3 sm:space-y-4 lg:flex-row lg:items-center lg:justify-center lg:space-y-0 lg:space-x-6">
-            <Button size="lg" variant="bronze" className="w-full sm:w-auto px-6 sm:px-8 min-h-[48px] text-sm sm:text-base">
-              Book Free Consultation
-            </Button>
-            <Button size="lg" variant="outline-inverse" className="w-full sm:w-auto px-6 sm:px-8 min-h-[48px] text-sm sm:text-base">
-              View Portfolio
-            </Button>
-          </div>
+          <Button size="lg" variant="bronze" className="w-full sm:w-auto px-6 sm:px-8 min-h-[48px] text-sm sm:text-base">
+            Book Free Consultation
+          </Button>
         </div>
       </div>
     </section>
