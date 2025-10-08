@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { Search, Filter, Grid, List, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -158,8 +159,59 @@ const Shop = () => {
     quickFilters.length
   ].reduce((a, b) => a + b, 0);
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Shop Collection - Yunix Stitches",
+    "description": "Browse our complete collection of custom fashion pieces including bridal couture, asoebi styles, corporate wear, and traditional Nigerian attire.",
+    "url": "https://yunixstitches.com/shop",
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": allProducts.length,
+      "itemListElement": allProducts.slice(0, 10).map((product, index) => ({
+        "@type": "ListItem",
+        "position": index + 1,
+        "item": {
+          "@type": "Product",
+          "name": product.name,
+          "image": product.images[0],
+          "offers": {
+            "@type": "Offer",
+            "price": product.price,
+            "priceCurrency": "NGN",
+            "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock"
+          }
+        }
+      }))
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Shop Collection - Premium Fashion & Custom Tailoring | Yunix Stitches</title>
+        <meta name="description" content="Browse our exquisite collection of custom fashion pieces. From bridal couture to traditional Nigerian attire, find the perfect design for your special occasion in Akure." />
+        <meta name="keywords" content="buy Nigerian fashion, custom dresses Akure, bridal gowns, asoebi styles, ready to wear Nigeria, online fashion shop Akure" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Shop Collection - Premium Fashion | Yunix Stitches" />
+        <meta property="og:description" content="Browse our exquisite collection of custom fashion pieces and traditional Nigerian attire." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yunixstitches.com/shop" />
+        <meta property="og:image" content="https://yunixstitches.com/shop-og-image.jpg" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Shop Collection | Yunix Stitches" />
+        <meta name="twitter:description" content="Browse our exquisite collection of custom fashion pieces and traditional Nigerian attire." />
+        
+        <link rel="canonical" href="https://yunixstitches.com/shop" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
       <Navigation />
       
       {/* Breadcrumb */}

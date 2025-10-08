@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { 
   Phone, 
   Mail, 
@@ -125,8 +126,67 @@ const Contact = () => {
     }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Yunix Stitches",
+    "description": "Get in touch with Yunix Stitches for custom tailoring consultations, bridal fittings, and fashion inquiries in Akure, Ondo State.",
+    "url": "https://yunixstitches.com/contact",
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Yunix Stitches",
+      "telephone": "+234-901-989-8642",
+      "email": "hello@yunixstitches.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Igbatoro Road, Opposite HOB",
+        "addressLocality": "Akure",
+        "addressRegion": "Ondo State",
+        "addressCountry": "NG"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "10:00",
+          "closes": "16:00"
+        }
+      ]
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Contact Us - Schedule a Consultation | Yunix Stitches</title>
+        <meta name="description" content="Get in touch with Yunix Stitches for custom tailoring consultations, bridal fittings, and fashion inquiries. Visit our Akure boutique or reach us via WhatsApp." />
+        <meta name="keywords" content="contact fashion boutique Akure, tailoring consultation, bridal fitting appointment, custom dress inquiry, Yunix Stitches location" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Contact Us - Schedule a Consultation | Yunix Stitches" />
+        <meta property="og:description" content="Get in touch for custom tailoring consultations, bridal fittings, and fashion inquiries in Akure." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yunixstitches.com/contact" />
+        <meta property="og:image" content="https://yunixstitches.com/contact-og-image.jpg" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Contact Us | Yunix Stitches" />
+        <meta name="twitter:description" content="Get in touch for custom tailoring consultations and fashion inquiries in Akure." />
+        
+        <link rel="canonical" href="https://yunixstitches.com/contact" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
       <Navigation />
       
       {/* Breadcrumb */}

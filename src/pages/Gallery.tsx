@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -51,8 +52,40 @@ const Gallery = () => {
     },
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Fashion Gallery - Yunix Stitches",
+    "description": "Explore our portfolio of exquisite designs, from bridal couture to traditional Nigerian fashion, showcasing timeless elegance and craftsmanship.",
+    "url": "https://yunixstitches.com/gallery"
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
+      <Helmet>
+        <title>Fashion Gallery - View Our Designs | Yunix Stitches</title>
+        <meta name="description" content="Explore our stunning collection of fashion designs. View photos of bridal couture, asoebi styles, corporate wear, and traditional Nigerian attire crafted in Akure." />
+        <meta name="keywords" content="Nigerian fashion gallery, bridal dress photos, asoebi styles gallery, fashion portfolio Akure, traditional attire designs" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Fashion Gallery - View Our Designs | Yunix Stitches" />
+        <meta property="og:description" content="Explore our stunning collection of fashion designs including bridal couture and traditional Nigerian attire." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yunixstitches.com/gallery" />
+        <meta property="og:image" content="https://yunixstitches.com/gallery-og-image.jpg" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fashion Gallery | Yunix Stitches" />
+        <meta name="twitter:description" content="Explore our stunning collection of fashion designs and traditional Nigerian attire." />
+        
+        <link rel="canonical" href="https://yunixstitches.com/gallery" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      </Helmet>
+      
       <Navigation />
       
       <main className="flex-1 pt-20">

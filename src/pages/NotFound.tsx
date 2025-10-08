@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft } from "lucide-react";
 
@@ -12,6 +13,13 @@ const NotFound = () => {
 
   return (
     <div className="min-h-screen bg-gradient-luxury flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <Helmet>
+        <title>404 - Page Not Found | Yunix Stitches</title>
+        <meta name="description" content="Sorry, the page you're looking for doesn't exist. Return to Yunix Stitches to explore our premium fashion collection." />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://yunixstitches.com" />
+      </Helmet>
+      
       <div className="text-center text-white max-w-lg mx-auto">
         <div className="mb-8">
           <h1 className="text-8xl font-serif font-bold text-secondary mb-4">404</h1>
