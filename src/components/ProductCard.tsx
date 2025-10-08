@@ -20,14 +20,20 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
   const [isWishlisted, setIsWishlisted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleWhatsAppOrder = () => {
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
+  const handleWhatsAppOrder = (e: React.MouseEvent) => {
+    e.stopPropagation();
     const message = encodeURIComponent(
       `Hi! I'm interested in the "${product.name}" priced at ₦${product.price.toLocaleString()}. Could you provide more details about sizing and delivery?`
     );
     window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
   };
 
-  const toggleWishlist = () => {
+  const toggleWishlist = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsWishlisted(!isWishlisted);
     toast({
       title: isWishlisted ? "Removed from wishlist" : "Added to wishlist",
@@ -35,7 +41,8 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
     });
   };
 
-  const handleShare = () => {
+  const handleShare = (e: React.MouseEvent) => {
+    e.stopPropagation();
     if (navigator.share) {
       navigator.share({
         title: product.name,
@@ -55,7 +62,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
 
   if (viewMode === "list") {
     return (
-      <Card className="product-card group border-0 shadow-soft hover:shadow-luxury">
+      <Card className="product-card group border-0 shadow-soft hover:shadow-luxury cursor-pointer" onClick={handleCardClick}>
         <div className="flex flex-col md:flex-row">
           <div className="relative w-full md:w-64 h-64 overflow-hidden rounded-t-lg md:rounded-l-lg md:rounded-t-none">
             <img 
@@ -92,7 +99,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
                 size="sm" 
                 variant="ghost" 
                 className="text-white hover:bg-white/20 p-2"
-                onClick={toggleWishlist}
+                onClick={(e) => { e.stopPropagation(); toggleWishlist(e); }}
               >
                 <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
               </Button>
@@ -100,7 +107,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
                 size="sm" 
                 variant="ghost" 
                 className="text-white hover:bg-white/20 p-2"
-                onClick={() => onQuickView?.(product)}
+                onClick={(e) => { e.stopPropagation(); onQuickView?.(product); }}
               >
                 <Eye className="h-4 w-4" />
               </Button>
@@ -108,7 +115,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
                 size="sm" 
                 variant="ghost" 
                 className="text-white hover:bg-white/20 p-2"
-                onClick={handleShare}
+                onClick={(e) => { e.stopPropagation(); handleShare(e); }}
               >
                 <Share2 className="h-4 w-4" />
               </Button>
@@ -184,7 +191,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
 
                 <Button 
                   className="btn-outline-bronze"
-                  onClick={handleWhatsAppOrder}
+                  onClick={(e) => { e.stopPropagation(); handleWhatsAppOrder(e); }}
                   disabled={!product.inStock}
                 >
                   <ShoppingBag className="h-4 w-4 mr-2" />
@@ -201,9 +208,10 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
   // Grid view (default)
   return (
     <Card 
-      className="product-card group border-0 shadow-soft hover:shadow-luxury h-full flex flex-col"
+      className="product-card group border-0 shadow-soft hover:shadow-luxury h-full flex flex-col cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       <div className="relative overflow-hidden rounded-t-lg">
         {/* Product Image - Mobile Optimized Aspect Ratio */}
@@ -226,7 +234,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             size="sm" 
             variant="ghost" 
             className="w-8 h-8 p-0 bg-black/30 hover:bg-black/50 text-white rounded-full"
-            onClick={toggleWishlist}
+            onClick={(e) => { e.stopPropagation(); toggleWishlist(e); }}
           >
             <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
           </Button>
@@ -238,7 +246,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             size="sm" 
             variant="ghost" 
             className="text-white hover:bg-white/20 p-2"
-            onClick={() => onQuickView?.(product)}
+            onClick={(e) => { e.stopPropagation(); onQuickView?.(product); }}
           >
             <Eye className="h-4 w-4" />
           </Button>
@@ -246,14 +254,14 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             size="sm" 
             variant="ghost" 
             className="text-white hover:bg-white/20 p-2"
-            onClick={toggleWishlist}
+            onClick={(e) => { e.stopPropagation(); toggleWishlist(e); }}
           >
             <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
           </Button>
           <Button 
             size="sm" 
             variant="bronze" 
-            onClick={handleWhatsAppOrder}
+            onClick={(e) => { e.stopPropagation(); handleWhatsAppOrder(e); }}
             disabled={!product.inStock}
             className="px-3 py-2"
           >
@@ -264,7 +272,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             size="sm" 
             variant="ghost" 
             className="text-white hover:bg-white/20 p-2"
-            onClick={handleShare}
+            onClick={(e) => { e.stopPropagation(); handleShare(e); }}
           >
             <Share2 className="h-4 w-4" />
           </Button>
@@ -361,7 +369,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
         {/* View Product Button - Touch Optimized */}
         <Button 
           className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
-          onClick={() => navigate(`/product/${product.id}`)}
+          onClick={(e) => { e.stopPropagation(); navigate(`/product/${product.id}`); }}
         >
           <Eye className="h-4 w-4 mr-2" />
           VIEW
