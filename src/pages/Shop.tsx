@@ -26,6 +26,7 @@ const Shop = () => {
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [selectedColors, setSelectedColors] = useState<string[]>([]);
   const [quickFilters, setQuickFilters] = useState<string[]>([]);
+  const [displayedCount, setDisplayedCount] = useState(12);
 
   // Handle URL parameters for category filtering
   useEffect(() => {
@@ -129,10 +130,23 @@ const Shop = () => {
     setSelectedColors([]);
     setQuickFilters([]);
     setSortBy("featured");
+    setDisplayedCount(12);
     toast({
       title: "Filters cleared",
       description: "All filters have been reset"
     });
+  };
+
+  // Reset displayed count when filters change
+  useEffect(() => {
+    setDisplayedCount(12);
+  }, [searchQuery, activeCategory, priceRange, selectedSizes, selectedColors, quickFilters, sortBy]);
+
+  const displayedProducts = filteredProducts.slice(0, displayedCount);
+  const hasMore = displayedCount < filteredProducts.length;
+
+  const loadMoreProducts = () => {
+    setDisplayedCount(prev => Math.min(prev + 12, filteredProducts.length));
   };
 
   const activeFiltersCount = [
@@ -305,17 +319,17 @@ const Shop = () => {
             {/* Results Count */}
             <div className="mb-6">
               <p className="text-muted-foreground">
-                Showing {filteredProducts.length} of {allProducts.length} products
+                Showing {displayedProducts.length} of {filteredProducts.length} products
               </p>
             </div>
 
             {/* Product Grid */}
-            <ProductGrid products={filteredProducts} viewMode={viewMode} />
+            <ProductGrid products={displayedProducts} viewMode={viewMode} />
 
-            {/* Load More / Pagination would go here */}
-            {filteredProducts.length > 0 && (
+            {/* Load More */}
+            {hasMore && (
               <div className="text-center mt-12">
-                <Button variant="outline" size="lg">
+                <Button variant="outline" size="lg" onClick={loadMoreProducts}>
                   Load More Products
                 </Button>
               </div>
