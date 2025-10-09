@@ -164,26 +164,32 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Contact Us - Schedule a Consultation | Yunix Stitches</title>
-        <meta name="description" content="Get in touch with Yunix Stitches for custom tailoring consultations, bridal fittings, and fashion inquiries. Visit our Akure boutique or reach us via WhatsApp." />
-        <meta name="keywords" content="contact fashion boutique Akure, tailoring consultation, bridal fitting appointment, custom dress inquiry, Yunix Stitches location" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Contact Us - Schedule a Consultation | Yunix Stitches" />
-        <meta property="og:description" content="Get in touch for custom tailoring consultations, bridal fittings, and fashion inquiries in Akure." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yunixstitches.com/contact" />
-        <meta property="og:image" content="https://yunixstitches.com/contact-og-image.jpg" />
-        
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contact Us | Yunix Stitches" />
-        <meta name="twitter:description" content="Get in touch for custom tailoring consultations and fashion inquiries in Akure." />
-        
+        <title>Contact Us | Yunix Stitches</title>
+        <meta name="description" content="Get in touch with Yunix Stitches for custom tailoring consultations, inquiries, and bookings. We're here to help bring your fashion vision to life." />
+        <meta name="keywords" content="contact, tailoring consultation, custom fashion, Yunix Stitches contact, booking, inquiries" />
         <link rel="canonical" href="https://yunixstitches.com/contact" />
         
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yunixstitches.com/contact" />
+        <meta property="og:title" content="Contact Us | Yunix Stitches" />
+        <meta property="og:description" content="Get in touch with Yunix Stitches for custom tailoring consultations, inquiries, and bookings." />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:url" content="https://yunixstitches.com/contact" />
+        <meta property="twitter:title" content="Contact Us | Yunix Stitches" />
+        <meta property="twitter:description" content="Get in touch with Yunix Stitches for custom tailoring consultations." />
+        
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Yunix Stitches",
+            "description": "Get in touch with Yunix Stitches for custom tailoring consultations and inquiries",
+            "url": "https://yunixstitches.com/contact",
+            "mainEntity": contactSchema
+          })}
         </script>
       </Helmet>
       

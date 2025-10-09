@@ -75,10 +75,13 @@ Could you provide more details about availability and delivery?`
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden" aria-describedby="quick-view-description">
         <DialogHeader>
-          <DialogTitle className="sr-only">Product Quick View</DialogTitle>
+          <DialogTitle className="sr-only">{product.name} - Quick View</DialogTitle>
         </DialogHeader>
+        <p id="quick-view-description" className="sr-only">
+          Quick view of {product.name}. Browse images, select size and color, and order via WhatsApp.
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Product Images */}
@@ -87,8 +90,9 @@ Could you provide more details about availability and delivery?`
             <div className="relative aspect-square rounded-lg overflow-hidden bg-muted">
               <img
                 src={product.images[currentImageIndex]}
-                alt={product.name}
+                alt={`${product.name} - View ${currentImageIndex + 1} of ${product.images.length}`}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
               
               {/* Stock Status Overlay */}
@@ -106,6 +110,7 @@ Could you provide more details about availability and delivery?`
                     size="sm"
                     className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
                     onClick={prevImage}
+                    aria-label="Previous image"
                   >
                     <ChevronLeft className="h-4 w-4" />
                   </Button>
@@ -114,6 +119,7 @@ Could you provide more details about availability and delivery?`
                     size="sm"
                     className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
                     onClick={nextImage}
+                    aria-label="Next image"
                   >
                     <ChevronRight className="h-4 w-4" />
                   </Button>
@@ -146,11 +152,14 @@ Could you provide more details about availability and delivery?`
                       index === currentImageIndex ? 'border-primary' : 'border-border'
                     }`}
                     onClick={() => setCurrentImageIndex(index)}
+                    aria-label={`View image ${index + 1}`}
+                    aria-current={index === currentImageIndex}
                   >
                     <img
                       src={image}
-                      alt={`${product.name} ${index + 1}`}
+                      alt={`${product.name} thumbnail ${index + 1}`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
                     />
                   </button>
                 ))}

@@ -1,12 +1,14 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import CategoryShowcase from "@/components/ProductShowcase";
-import AboutPreview from "@/components/AboutPreview";
-import ServicesPreview from "@/components/ServicesPreview";
 import Footer from "@/components/Footer";
 import { smoothScrollToElement } from "@/lib/utils";
+
+// Lazy load below-the-fold components
+const CategoryShowcase = lazy(() => import("@/components/ProductShowcase"));
+const AboutPreview = lazy(() => import("@/components/AboutPreview"));
+const ServicesPreview = lazy(() => import("@/components/ServicesPreview"));
 
 const Index = () => {
   useEffect(() => {
@@ -81,18 +83,20 @@ const Index = () => {
       <Navigation />
       
       {/* Main Content */}
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         <HeroSection />
         
-        {/* Category Showcase */}
-        <CategoryShowcase />
-        
-        {/* About Preview */}
-        <AboutPreview />
-        
-        {/* Services Preview */}
-        <ServicesPreview />
+        <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center"><div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-r-transparent"></div></div>}>
+          {/* Category Showcase */}
+          <CategoryShowcase />
+          
+          {/* About Preview */}
+          <AboutPreview />
+          
+          {/* Services Preview */}
+          <ServicesPreview />
+        </Suspense>
       </main>
       
       {/* Footer */}

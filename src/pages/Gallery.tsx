@@ -88,7 +88,7 @@ const Gallery = () => {
       
       <Navigation />
       
-      <main className="flex-1 pt-20">
+      <main id="main-content" className="flex-1 pt-20">
         {/* Header */}
         <section className="py-12 bg-gradient-to-b from-muted/50 to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,6 +117,7 @@ const Gallery = () => {
                     src={image.src}
                     alt={image.alt}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -149,8 +150,9 @@ const Gallery = () => {
           {selectedImage && (
             <img
               src={selectedImage}
-              alt="Gallery image"
+              alt="Gallery image full view"
               className="w-full h-auto max-h-[90vh] object-contain rounded-lg"
+              loading="lazy"
             />
           )}
         </DialogContent>

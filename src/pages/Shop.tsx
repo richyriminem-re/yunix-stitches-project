@@ -189,29 +189,29 @@ const Shop = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Shop Collection - Premium Fashion & Custom Tailoring | Yunix Stitches</title>
-        <meta name="description" content="Browse our exquisite collection of custom fashion pieces. From bridal couture to traditional Nigerian attire, find the perfect design for your special occasion in Akure." />
-        <meta name="keywords" content="buy Nigerian fashion, custom dresses Akure, bridal gowns, asoebi styles, ready to wear Nigeria, online fashion shop Akure" />
+        <title>Shop Premium Fashion | Yunix Stitches</title>
+        <meta name="description" content="Browse our collection of premium Nigerian fashion including Asoebi wears, corporate attire, bridal robes, and custom tailoring. Quality craftsmanship meets contemporary style." />
+        <meta name="keywords" content="Nigerian fashion, Asoebi, corporate wear, bridal robes, custom tailoring, premium clothing, Yunix Stitches shop" />
+        <link rel="canonical" href="https://yunixstitches.com/shop" />
         
-        {/* Open Graph */}
-        <meta property="og:title" content="Shop Collection - Premium Fashion | Yunix Stitches" />
-        <meta property="og:description" content="Browse our exquisite collection of custom fashion pieces and traditional Nigerian attire." />
+        {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yunixstitches.com/shop" />
-        <meta property="og:image" content="https://yunixstitches.com/shop-og-image.jpg" />
+        <meta property="og:title" content="Shop Premium Fashion | Yunix Stitches" />
+        <meta property="og:description" content="Browse our collection of premium Nigerian fashion including Asoebi wears, corporate attire, bridal robes, and custom tailoring." />
+        <meta property="og:image" content="https://yunixstitches.com/og-shop.jpg" />
         
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Shop Collection | Yunix Stitches" />
-        <meta name="twitter:description" content="Browse our exquisite collection of custom fashion pieces and traditional Nigerian attire." />
-        
-        <link rel="canonical" href="https://yunixstitches.com/shop" />
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://yunixstitches.com/shop" />
+        <meta property="twitter:title" content="Shop Premium Fashion | Yunix Stitches" />
+        <meta property="twitter:description" content="Browse our collection of premium Nigerian fashion including Asoebi wears, corporate attire, bridal robes, and custom tailoring." />
         
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       </Helmet>
-      
+
       <Navigation />
       
       {/* Breadcrumb */}
@@ -240,7 +240,7 @@ const Shop = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main id="main-content" className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex gap-8">
           {/* Desktop Filter Sidebar */}
           <div className="hidden lg:block w-80 flex-shrink-0">
@@ -388,7 +388,7 @@ const Shop = () => {
             )}
           </div>
         </div>
-      </div>
+      </main>
 
       <Footer />
     </div>

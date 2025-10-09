@@ -23,6 +23,8 @@ const HeroSection = () => {
           src={heroImage}
           alt="Elegant Nigerian fashion model in Yunix Stitches design"
           className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
         />
         <div className="hero-overlay absolute inset-0"></div>
       </div>

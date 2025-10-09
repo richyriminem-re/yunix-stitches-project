@@ -67,8 +67,9 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
           <div className="relative w-full md:w-64 h-64 overflow-hidden rounded-t-lg md:rounded-l-lg md:rounded-t-none">
             <img 
               src={product.images[currentImageIndex]}
-              alt={product.name}
+              alt={`${product.name} - ${product.categoryName}`}
               className="product-image w-full h-full object-cover transition-transform duration-500"
+              loading="lazy"
             />
             
             {/* Stock Status */}
@@ -217,8 +218,9 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
         {/* Product Image - Mobile Optimized Aspect Ratio */}
         <img 
           src={product.images[currentImageIndex]}
-          alt={product.name}
+          alt={`${product.name} - ${product.categoryName}`}
           className="product-image w-full h-40 sm:h-48 md:h-56 lg:h-64 object-cover transition-transform duration-500"
+          loading="lazy"
         />
         
         {/* Stock Status */}
