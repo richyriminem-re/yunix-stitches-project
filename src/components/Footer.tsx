@@ -1,6 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Instagram, MessageCircle, Phone, Mail, MapPin } from "lucide-react";
 import { smoothScrollToElement } from "@/lib/utils";
 const Footer = () => {
@@ -64,32 +62,6 @@ const Footer = () => {
     href: "/services/consultation"
   }];
   return <footer className="bg-gradient-luxury text-white">
-      {/* Newsletter Section */}
-      <div className="border-b border-white/20 py-8 sm:py-12 lg:py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold mb-4 sm:mb-6">
-              Stay Updated with Yunix Style
-            </h3>
-            <p className="text-base sm:text-lg opacity-90 mb-6 sm:mb-8 leading-relaxed px-4">
-              Subscribe to our newsletter for the latest fashion trends, styling tips, 
-              and exclusive offers on our luxury Nigerian fashion collections.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 max-w-lg mx-auto px-4">
-              <Input 
-                type="email" 
-                placeholder="Enter your email address" 
-                className="w-full bg-white/10 border-white/30 text-white placeholder:text-white/70 focus:bg-white/20 dark:bg-black/20 dark:border-white/40 dark:focus:bg-black/30" 
-              />
-              <Button variant="bronze" size="lg" className="w-full sm:w-auto whitespace-nowrap">
-                Subscribe Now
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Content */}
       <div className="py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

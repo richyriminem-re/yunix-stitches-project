@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, Search, ShoppingBag, ChevronDown, Calendar, ArrowRight } from "lucide-react";
+import { Menu, ChevronDown, Calendar, ArrowRight } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import { smoothScrollToElement } from "@/lib/utils";
 
@@ -114,15 +114,6 @@ const Navigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="ghost" size="sm" aria-label="Search products">
-              <Search className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" className="relative" aria-label="Shopping cart - 0 items">
-              <ShoppingBag className="h-4 w-4" />
-              <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center" aria-hidden="true">
-                0
-              </span>
-            </Button>
             <ThemeToggle />
             <Button 
               variant="bronze" 
@@ -165,16 +156,12 @@ const Navigation = () => {
                     <Button 
                       variant="bronze" 
                       size="lg"
-                      className="w-full mb-4"
+                      className="w-full"
                       onClick={handleWhatsAppContact}
                     >
                       <Calendar className="mr-2 h-4 w-4" />
                       Book A Fitting
                       <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                    <Button variant="outline" size="sm" className="w-full">
-                      <ShoppingBag className="h-4 w-4 mr-2" />
-                      Cart (0)
                     </Button>
                   </div>
                 </div>
