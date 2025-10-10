@@ -511,38 +511,6 @@ const ProductDetail = () => {
               </AccordionContent>
             </AccordionItem>
 
-            <AccordionItem value="size-guide">
-              <AccordionTrigger className="text-left">
-                Size Guide & Measurements
-              </AccordionTrigger>
-              <AccordionContent>
-                <div className="space-y-4">
-                  <p className="text-sm text-muted-foreground">
-                    Our garments are tailored to fit perfectly. Please refer to the size chart below:
-                  </p>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b">
-                          <th className="text-left py-2">Size</th>
-                          <th className="text-left py-2">Bust (inches)</th>
-                          <th className="text-left py-2">Waist (inches)</th>
-                          <th className="text-left py-2">Hips (inches)</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr className="border-b"><td className="py-2">XS</td><td>32-34</td><td>24-26</td><td>34-36</td></tr>
-                        <tr className="border-b"><td className="py-2">S</td><td>34-36</td><td>26-28</td><td>36-38</td></tr>
-                        <tr className="border-b"><td className="py-2">M</td><td>36-38</td><td>28-30</td><td>38-40</td></tr>
-                        <tr className="border-b"><td className="py-2">L</td><td>38-40</td><td>30-32</td><td>40-42</td></tr>
-                        <tr><td className="py-2">XL</td><td>40-42</td><td>32-34</td><td>42-44</td></tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-
           </Accordion>
         </div>
       </main>
