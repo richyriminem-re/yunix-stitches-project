@@ -1,6 +1,11 @@
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
+import asoebiEmerald from "@/assets/asoebi-emerald.jpg";
+import corsetVintage from "@/assets/corset-vintage.jpg";
+import suitExecutive from "@/assets/suit-executive.jpg";
+import dressSummer from "@/assets/dress-summer.jpg";
+import bubuRoyal from "@/assets/bubu-royal.jpg";
+import robeBridal from "@/assets/robe-bridal.jpg";
+import gownWedding from "@/assets/gown-wedding.jpg";
+import dressAnkara from "@/assets/dress-ankara.jpg";
 
 export interface Product {
   id: number;
@@ -30,7 +35,7 @@ export const allProducts: Product[] = [
     categoryName: "Asoebi Wears",
     price: 185000,
     originalPrice: 220000,
-    images: [product1, product2, product3],
+    images: [asoebiEmerald],
     rating: 4.9,
     reviews: 24,
     isNew: true,
@@ -47,7 +52,7 @@ export const allProducts: Product[] = [
     category: "corset",
     categoryName: "Corset",
     price: 45000,
-    images: [product2, product1],
+    images: [corsetVintage],
     rating: 4.8,
     reviews: 22,
     description: "Discover timeless elegance with our handcrafted Vintage Lace Corset, expertly designed to create the perfect silhouette. This stunning corset features premium quality vintage lace with delicate floral patterns and intricate detailing that exudes sophistication. Constructed with durable boning for excellent support and shape retention, it includes adjustable back lacing for a customizable fit that flatters every body type. The high-quality materials ensure comfort throughout the day while maintaining structure. Ideal for special occasions, photoshoots, bridal wear, or adding a touch of elegance to your evening ensemble. Each corset is carefully crafted in Nigeria by skilled seamstresses who understand the art of perfect fit and feminine beauty.",
@@ -62,7 +67,7 @@ export const allProducts: Product[] = [
     category: "corporate-wears",
     categoryName: "Corporate Wears",
     price: 85000,
-    images: [product3, product2],
+    images: [suitExecutive],
     rating: 4.7,
     reviews: 33,
     isNew: true,
@@ -79,7 +84,7 @@ export const allProducts: Product[] = [
     category: "ready-to-wear",
     categoryName: "Ready to Wear",
     price: 25000,
-    images: [product1, product3],
+    images: [dressSummer],
     rating: 4.5,
     reviews: 41,
     description: "Embrace effortless style with our Summer Casual Dress, designed for the modern woman who values both comfort and elegance. This versatile ready-to-wear piece is crafted from breathable, high-quality cotton fabric that keeps you cool and comfortable all day long. The flattering cut suits various body types, while the timeless design makes it perfect for multiple occasions—from casual brunches to evening gatherings. The dress features thoughtful details like hidden pockets and adjustable straps for added functionality. Easy to care for and wrinkle-resistant, this is your go-to dress for everyday elegance. Proudly made in Nigeria with attention to detail and quality craftsmanship.",
@@ -94,7 +99,7 @@ export const allProducts: Product[] = [
     category: "bubu",
     categoryName: "Bubu",
     price: 75000,
-    images: [product2, product1, product3],
+    images: [bubuRoyal],
     rating: 4.9,
     reviews: 17,
     isBestseller: true,
@@ -111,7 +116,7 @@ export const allProducts: Product[] = [
     category: "bridal-robe",
     categoryName: "Bridal Robe",
     price: 35000,
-    images: [product3, product2],
+    images: [robeBridal],
     rating: 4.7,
     reviews: 15,
     description: "Indulge in luxury on your special day with our Silk Bridal Robe, the perfect addition to your bridal preparations. Crafted from 100% pure silk with delicate lace trim, this exquisite robe feels incredibly soft against your skin while looking absolutely stunning in photographs. The elegant design features a flattering cut that suits all body types, with a secure tie closure and comfortable fit. Ideal for getting ready on your wedding day, bridal photoshoots, or as a thoughtful gift for bridesmaids. The timeless design and neutral colors ensure it will be treasured long after your special day. Each robe is carefully sewn with attention to detail, ensuring durability and beauty that lasts.",
@@ -126,7 +131,7 @@ export const allProducts: Product[] = [
     category: "wedding-gowns",
     categoryName: "Wedding Gowns",
     price: 450000,
-    images: [product1, product2, product3],
+    images: [gownWedding],
     rating: 5.0,
     reviews: 18,
     isBestseller: true,
@@ -143,7 +148,7 @@ export const allProducts: Product[] = [
     category: "ready-to-wear",
     categoryName: "Ready to Wear",
     price: 35000,
-    images: [product2, product3],
+    images: [dressAnkara],
     rating: 4.6,
     reviews: 28,
     isNew: true,

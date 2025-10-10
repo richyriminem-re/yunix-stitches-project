@@ -5,10 +5,12 @@ import Footer from "@/components/Footer";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { X } from "lucide-react";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import heroImage from "@/assets/hero-image.jpg";
+import galleryAsoebi from "@/assets/gallery-asoebi.jpg";
+import galleryCorset from "@/assets/gallery-corset.jpg";
+import galleryCorporate from "@/assets/gallery-corporate.jpg";
+import galleryBridal from "@/assets/gallery-bridal.jpg";
+import galleryBubu from "@/assets/gallery-bubu.jpg";
+import galleryReadyToWear from "@/assets/gallery-readytowear.jpg";
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -16,38 +18,38 @@ const Gallery = () => {
   const galleryImages = [
     {
       id: 1,
-      src: product1,
-      alt: "Elegant Asoebi Design",
+      src: galleryAsoebi,
+      alt: "Elegant Asoebi Design with Gold Threading",
       category: "Asoebi",
     },
     {
       id: 2,
-      src: product2,
-      alt: "Stunning Corset Dress",
+      src: galleryCorset,
+      alt: "Stunning Black Lace Corset Dress",
       category: "Corset",
     },
     {
       id: 3,
-      src: product3,
-      alt: "Corporate Elegance",
+      src: galleryCorporate,
+      alt: "Navy Corporate Power Suit",
       category: "Corporate",
     },
     {
       id: 4,
-      src: heroImage,
-      alt: "Bridal Collection",
+      src: galleryBridal,
+      alt: "Luxurious Bridal Wedding Gown",
       category: "Bridal",
     },
     {
       id: 5,
-      src: product1,
-      alt: "Traditional Bubu",
+      src: galleryBubu,
+      alt: "Traditional Purple and Gold Bubu",
       category: "Bubu",
     },
     {
       id: 6,
-      src: product2,
-      alt: "Ready to Wear",
+      src: galleryReadyToWear,
+      alt: "Casual White Ready to Wear Dress",
       category: "Ready to Wear",
     },
   ];
