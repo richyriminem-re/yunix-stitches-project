@@ -3,9 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { useNavigate } from "react-router-dom";
 import CategoryFilter from "@/components/CategoryFilter";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
+import asoebiEmerald from "@/assets/asoebi-emerald.jpg";
+import corsetVintage from "@/assets/corset-vintage.jpg";
+import suitExecutive from "@/assets/suit-executive.jpg";
+import dressSummer from "@/assets/dress-summer.jpg";
+import bubuRoyal from "@/assets/bubu-royal.jpg";
+import robeBridal from "@/assets/robe-bridal.jpg";
+import gownWedding from "@/assets/gown-wedding.jpg";
 
 const CategoryShowcase = () => {
   const navigate = useNavigate();
@@ -16,49 +20,49 @@ const CategoryShowcase = () => {
       id: "asoebi-wears",
       name: "Asoebi",
       subtitle: "Traditional Wear",
-      image: product1,
+      image: asoebiEmerald,
       description: "Luxurious traditional pieces with intricate beadwork and modern tailoring."
     },
     {
       id: "corset",
       name: "Corset",
       subtitle: "Vintage Style",
-      image: product2,
+      image: corsetVintage,
       description: "Handcrafted corsets with vintage lace details and perfect fit."
     },
     {
       id: "corporate-wears",
       name: "Corporate",
       subtitle: "Professional Wear",
-      image: product3,
+      image: suitExecutive,
       description: "Professional attire with modern tailoring and premium fabrics."
     },
     {
       id: "ready-to-wear",
       name: "Ready to Wear",
       subtitle: "Casual Style",
-      image: product1,
+      image: dressSummer,
       description: "Comfortable and stylish pieces for everyday elegance."
     },
     {
       id: "bubu",
       name: "Bubu",
       subtitle: "Contemporary",
-      image: product2,
+      image: bubuRoyal,
       description: "Traditional bubu with contemporary flair and rich embroidery."
     },
     {
       id: "bridal-robe",
       name: "Bridal Robe",
       subtitle: "Luxury Robes",
-      image: product3,
+      image: robeBridal,
       description: "Luxurious silk robes with delicate lace trim for special moments."
     },
     {
       id: "wedding-gowns",
       name: "Wedding Gowns",
       subtitle: "Bridal Collection",
-      image: product1,
+      image: gownWedding,
       description: "Exquisite gowns with traditional lace and contemporary silhouettes."
     }
   ];
