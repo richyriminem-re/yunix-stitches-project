@@ -351,7 +351,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
         </div>
 
         {/* Size and Color Indicators - Simplified for mobile */}
-        <div className="flex justify-between items-center mb-3 sm:mb-4 flex-grow">
+        <div className="flex justify-between items-center">
           <div className="flex items-center gap-1">
             <div className="flex gap-1">
               {product.colors.slice(0, 2).map(color => (
@@ -367,15 +367,6 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             {product.sizes.length > 2 && <span className="text-xs text-muted-foreground">+{product.sizes.length - 2}</span>}
           </div>
         </div>
-
-        {/* View Product Button - Touch Optimized */}
-        <Button 
-          className="w-full btn-outline-bronze min-h-[44px] text-sm font-medium"
-          onClick={(e) => { e.stopPropagation(); navigate(`/product/${product.id}`); }}
-        >
-          <Eye className="h-4 w-4 mr-2" />
-          VIEW
-        </Button>
       </CardContent>
     </Card>
   );
