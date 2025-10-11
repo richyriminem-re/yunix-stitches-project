@@ -3,13 +3,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Menu, ChevronDown, Calendar, ArrowRight } from "lucide-react";
+import { Menu, ChevronDown, Calendar, ArrowRight, Heart } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import ThemeToggle from "@/components/ThemeToggle";
 import { smoothScrollToElement } from "@/lib/utils";
+import { useWishlist } from "@/hooks/use-wishlist";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { wishlistCount } = useWishlist();
 
   const handleWhatsAppContact = () => {
     const message = encodeURIComponent("Hello! I'm interested in booking a consultation for custom tailoring.");
@@ -114,6 +117,23 @@ const Navigation = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-2">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="relative"
+              onClick={() => navigate("/wishlist")}
+              aria-label="View wishlist"
+            >
+              <Heart className="h-5 w-5" />
+              {wishlistCount > 0 && (
+                <Badge 
+                  variant="secondary" 
+                  className="absolute -top-1 -right-1 h-5 w-5 p-0 flex items-center justify-center text-xs"
+                >
+                  {wishlistCount}
+                </Badge>
+              )}
+            </Button>
             <ThemeToggle />
             <Button 
               variant="bronze" 
@@ -129,6 +149,23 @@ const Navigation = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-2">
+            <Button 
+              variant="ghost" 
+              size="icon"
+              className="relative"
+              onClick={() => navigate("/wishlist")}
+              aria-label="View wishlist"
+            >
+              <Heart className="h-5 w-5" />
+              {wishlistCount > 0 && (
+                <Badge 
+                  variant="secondary" 
+                  className="absolute -top-1 -right-1 h-4 w-4 p-0 flex items-center justify-center text-xs"
+                >
+                  {wishlistCount}
+                </Badge>
+              )}
+            </Button>
             <ThemeToggle />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
