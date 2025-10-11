@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet";
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
@@ -13,6 +14,7 @@ import galleryBubu from "@/assets/gallery-bubu.jpg";
 import galleryReadyToWear from "@/assets/gallery-readytowear.jpg";
 
 const Gallery = () => {
+  const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const galleryImages = [
@@ -90,7 +92,23 @@ const Gallery = () => {
       
       <Navigation />
       
-      <main id="main-content" className="flex-1 pt-20">
+      {/* Breadcrumb */}
+      <div className="pt-20 pb-4 border-b border-border">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="text-sm">
+            <button 
+              onClick={() => navigate("/")} 
+              className="text-muted-foreground hover:text-primary cursor-pointer"
+            >
+              Home
+            </button>
+            <span className="mx-2 text-muted-foreground">/</span>
+            <span className="text-primary">Gallery</span>
+          </nav>
+        </div>
+      </div>
+      
+      <main id="main-content" className="flex-1">
         {/* Header */}
         <section className="py-12 bg-gradient-to-b from-muted/50 to-background">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
