@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import { Heart, Eye, ShoppingBag, Star, Share2 } from "lucide-react";
 import { type Product } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
-import { useWishlist } from "@/hooks/use-wishlist";
 
 interface ProductCardProps {
   product: Product;
@@ -17,11 +16,9 @@ interface ProductCardProps {
 const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardProps) => {
   const navigate = useNavigate();
   const { toast } = useToast();
-  const { isInWishlist, toggleWishlist } = useWishlist();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isWishlisted, setIsWishlisted] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  
-  const isWishlisted = isInWishlist(product.id);
 
   const handleCardClick = () => {
     navigate(`/product/${product.id}`);
@@ -35,12 +32,12 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
     window.open(`https://wa.me/234901989864?text=${message}`, '_blank');
   };
 
-  const handleToggleWishlist = (e: React.MouseEvent) => {
+  const toggleWishlist = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const added = toggleWishlist(product);
+    setIsWishlisted(!isWishlisted);
     toast({
-      title: added ? "Added to wishlist" : "Removed from wishlist",
-      description: `${product.name} ${added ? "added to" : "removed from"} your wishlist`
+      title: isWishlisted ? "Removed from wishlist" : "Added to wishlist",
+      description: `${product.name} ${isWishlisted ? "removed from" : "added to"} your wishlist`
     });
   };
 
@@ -103,7 +100,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
                 size="sm" 
                 variant="ghost" 
                 className="text-white hover:bg-white/20 p-2"
-                onClick={handleToggleWishlist}
+                onClick={(e) => { e.stopPropagation(); toggleWishlist(e); }}
               >
                 <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
               </Button>
@@ -239,7 +236,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             size="sm" 
             variant="ghost" 
             className="w-8 h-8 p-0 bg-black/30 hover:bg-black/50 text-white rounded-full"
-            onClick={handleToggleWishlist}
+            onClick={(e) => { e.stopPropagation(); toggleWishlist(e); }}
           >
             <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
           </Button>
@@ -259,7 +256,7 @@ const ProductCard = ({ product, viewMode = "grid", onQuickView }: ProductCardPro
             size="sm" 
             variant="ghost" 
             className="text-white hover:bg-white/20 p-2"
-            onClick={handleToggleWishlist}
+            onClick={(e) => { e.stopPropagation(); toggleWishlist(e); }}
           >
             <Heart className={`h-4 w-4 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
           </Button>
