@@ -97,13 +97,6 @@ const Contact = () => {
       action: "tel:+2349019898642"
     },
     {
-      icon: Mail,
-      title: "Email",
-      description: "Send us a detailed message",
-      value: "hello@yunixstitches.com",
-      action: "mailto:hello@yunixstitches.com"
-    },
-    {
       icon: "whatsapp",
       title: "WhatsApp",
       description: "Quick chat and consultations",
